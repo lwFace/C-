@@ -1,0 +1,33 @@
+/*
+* Description: OpenSplice DDS test IDL;
+* Author: jialun.liu;
+* Date: 2015-07-29
+* version: 2.0
+*
+* CopyRight of Hirain
+*/
+
+#include "datarouter.idl"
+
+module datarouter
+{
+
+typedef sequence<Payload> PayloadTypeSIL;
+
+struct SIL_msg
+{
+	unsigned long      id;
+	unsigned long      length;
+	PayloadTypeSIL     payload;
+	PayloadTypeSIL     payload_mask;
+};
+#pragma keylist SIL_msg id
+
+struct SIL_Channel
+{
+	unsigned long id;
+	sequence<SIL_msg> msgs;
+};
+#pragma keylist SIL_Channel id
+
+};//datarouter

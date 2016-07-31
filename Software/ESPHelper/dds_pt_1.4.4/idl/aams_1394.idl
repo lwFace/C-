@@ -1,0 +1,43 @@
+/*
+* Description: OpenSplice DDS test IDL;
+* Author: yonggang;
+* Date: 2010-08-02
+* version: 2.0
+*
+* CopyRight of Hirain
+*/
+
+#include "datarouter.idl"
+
+module datarouter
+{
+	typedef sequence<Payload> PayloadTypeAAMS1394;
+	struct AAMS_1394_msg
+	{
+		unsigned long id;                       // DDS key；
+		unsigned long channel;            // 通道号；
+		unsigned long msgId;               //  消息号；
+		unsigned long nodeId;             //  节点号；
+		unsigned long healthStatus;   //  健康状态字；
+		unsigned long healthBeat;      //  心跳字；
+		unsigned long vpcData;           //   VPC校验字；
+		boolean vpcError;                            //  VPC校验结果；
+		unsigned long headerCRC;      //   消息头CRC校验；
+		unsigned long dataCRC;           //   数据段CRC校验；
+		unsigned long payloadLen;     //   数据长度；
+
+		unsigned long src; //SRC
+		unsigned long sec;
+		unsigned long usec;
+		PayloadTypeAAMS1394  payload;
+	};
+#pragma keylist AAMS_1394_msg id
+
+	struct AAMS_1394_Channel 
+	{ 
+		unsigned long id; 
+		sequence<AAMS_1394_msg> msgs; 
+	}; 
+#pragma keylist AAMS_1394_Channel id 
+
+};

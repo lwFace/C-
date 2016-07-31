@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TAOAdder_Client", "TAOAdder_Client.vcproj", "{4BB46C81-FECA-1BAD-2225-8FD43FA4C9DD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TAOAdder_Server", "TAOAdder_Server.vcproj", "{2BA4E6BA-FECA-1BAD-2225-8FD43FA4C9DD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TAODirectAdderClient", "DirectTAOAdder_Client.vcproj", "{AE1AFBFC-3F45-4FC9-AC01-0BA7B9D551FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BB46C81-FECA-1BAD-2225-8FD43FA4C9DD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4BB46C81-FECA-1BAD-2225-8FD43FA4C9DD}.Debug|Win32.Build.0 = Debug|Win32
+		{4BB46C81-FECA-1BAD-2225-8FD43FA4C9DD}.Release|Win32.ActiveCfg = Release|Win32
+		{4BB46C81-FECA-1BAD-2225-8FD43FA4C9DD}.Release|Win32.Build.0 = Release|Win32
+		{2BA4E6BA-FECA-1BAD-2225-8FD43FA4C9DD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2BA4E6BA-FECA-1BAD-2225-8FD43FA4C9DD}.Debug|Win32.Build.0 = Debug|Win32
+		{2BA4E6BA-FECA-1BAD-2225-8FD43FA4C9DD}.Release|Win32.ActiveCfg = Release|Win32
+		{2BA4E6BA-FECA-1BAD-2225-8FD43FA4C9DD}.Release|Win32.Build.0 = Release|Win32
+		{AE1AFBFC-3F45-4FC9-AC01-0BA7B9D551FE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AE1AFBFC-3F45-4FC9-AC01-0BA7B9D551FE}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

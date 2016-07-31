@@ -1,0 +1,13 @@
+project(*Server): taoexe, portableserver,namingexe, naming_skel {
+  Source_Files {
+    nslister_i.cpp
+    nslisterServer.cpp
+  }
+}
+
+project(*Client): taoexe, namingexe {
+  Source_Files {
+    nslisterC.cpp
+    nslister.cpp
+  }
+}

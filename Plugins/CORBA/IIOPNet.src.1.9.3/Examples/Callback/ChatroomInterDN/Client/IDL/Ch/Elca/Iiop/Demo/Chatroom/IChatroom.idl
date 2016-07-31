@@ -1,0 +1,61 @@
+// auto-generated IDL file by CLS to IDL mapper
+
+// Ch\Elca\Iiop\Demo\Chatroom\IChatroom.idl
+
+#ifndef __Ch_Elca_Iiop_Demo_Chatroom_Message__
+module Ch {
+module Elca {
+module Iiop {
+module Demo {
+module Chatroom {
+
+valuetype Message;
+};
+};
+};
+};
+};
+#endif
+#ifndef __Ch_Elca_Iiop_Demo_Chatroom_MessageListener__
+module Ch {
+module Elca {
+module Iiop {
+module Demo {
+module Chatroom {
+
+abstract interface MessageListener;
+};
+};
+};
+};
+};
+#endif
+#include "orb.idl"
+#include "Predef.idl"
+
+#include "Ch\Elca\Iiop\GenericUserException.idl"
+#ifndef __Ch_Elca_Iiop_Demo_Chatroom_IChatroom__
+#define __Ch_Elca_Iiop_Demo_Chatroom_IChatroom__
+module Ch {
+module Elca {
+module Iiop {
+module Demo {
+module Chatroom {
+
+abstract interface IChatroom {
+void BroadCast(in ::Ch::Elca::Iiop::Demo::Chatroom::Message msg) raises (::Ch::Elca::Iiop::GenericUserException);
+void RegisterMe(in ::Ch::Elca::Iiop::Demo::Chatroom::MessageListener listener, in ::CORBA::WStringValue forUser) raises (::Ch::Elca::Iiop::GenericUserException);
+void UnregisterMe(in ::CORBA::WStringValue userName) raises (::Ch::Elca::Iiop::GenericUserException);
+};
+
+#pragma ID IChatroom "IDL:Ch/Elca/Iiop/Demo/Chatroom/IChatroom:1.0"
+
+};
+};
+};
+};
+};
+
+#include "Ch\Elca\Iiop\Demo\Chatroom\Message.idl"
+#include "Ch\Elca\Iiop\Demo\Chatroom\MessageListener.idl"
+#endif

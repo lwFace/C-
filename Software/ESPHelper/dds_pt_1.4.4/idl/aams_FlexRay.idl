@@ -1,0 +1,48 @@
+/*
+* Description: OpenSplice DDS test IDL;
+* Author: zhiyuan.dai
+* Date: 2015-08-02
+* version: 2.0
+*
+* CopyRight of Hirain
+*/
+#include "datarouter.idl"
+
+module datarouter
+{
+	typedef sequence<Payload> PayloadTypeAAMSFlexRay;
+
+	struct AAMS_FlexRay_msg
+	{
+		unsigned long  id;
+
+		unsigned long PPI; //负载开端指示位
+		unsigned long NUF; //空帧指示位
+		unsigned long SYF; //同步帧指示位
+		unsigned long SUF; //启动帧指示位
+		unsigned long frameId; //帧ID，即时隙号
+		unsigned long cyccnt; //cycle值
+		unsigned long payloadLength; //负载长度，单位：字
+		unsigned long headerCRC; //CRC
+
+		unsigned long chAorBrecv;  //通道A或B收到有效帧标志位
+		unsigned long syntaxError; //语法错误标志位
+		unsigned long contentError; //内容错误标志位
+		unsigned long violationError; //越界标志位
+
+		unsigned long chipReadError; //芯片读取错误
+		unsigned long sec; //时间戳，相对时间
+		unsigned long usec; //时间戳，相对时间
+		unsigned long nanos; //时间戳，相对时间
+
+		PayloadTypeAAMSFlexRay payload;     // 有效数据 
+	};
+#pragma keylist AAMS_FlexRay_msg id
+
+	struct AAMS_FlexRay_Channel
+	{
+		unsigned long id;
+		sequence<AAMS_FlexRay_msg> msgs;
+	};
+#pragma keylist AAMS_FlexRay_Channel id
+};

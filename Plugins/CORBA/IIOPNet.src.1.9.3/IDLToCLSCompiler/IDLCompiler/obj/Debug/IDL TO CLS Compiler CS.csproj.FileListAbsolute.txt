@@ -1,0 +1,9 @@
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\binSD\IDL TO CLS Compiler CS.exe
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\binSD\IDL TO CLS Compiler CS.pdb
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\binSD\IDLPreProcCSharp.dll
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\binSD\IIOPChannel.dll
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\binSD\nunit.framework.dll
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\binSD\IIOPChannel.pdb
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\obj\Debug\IDL TO CLS Compiler CS.csprojResolveAssemblyReference.cache
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\obj\Debug\IDL TO CLS Compiler CS.exe
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IDLToCLSCompiler\IDLCompiler\obj\Debug\IDL TO CLS Compiler CS.pdb

@@ -1,0 +1,21 @@
+project(TAOAdderServer): taoexe, portableserver,namingexe, naming_skel {
+  Source_Files {
+    ExampleInterfaces_i.cpp
+    TAOAdderServer.cpp
+  }
+}
+
+project(TAOAdderClient): taoexe, namingexe {
+  Source_Files {
+    ExampleInterfacesC.cpp
+    TAOAdderClient.cpp
+  }
+}
+
+project(TAODirectAdderClient): taoexe, namingexe {
+  Source_Files {
+    ExampleInterfacesC.cpp
+    TAODirectAdderClient.cpp
+  }
+}
+

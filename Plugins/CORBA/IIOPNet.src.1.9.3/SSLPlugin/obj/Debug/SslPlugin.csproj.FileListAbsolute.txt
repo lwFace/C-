@@ -1,0 +1,2 @@
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\SSLPlugin\obj\Debug\SslPlugin.csprojResolveAssemblyReference.cache
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\SSLPlugin\obj\Debug\SslPlugin.dll

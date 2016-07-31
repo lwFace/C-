@@ -1,0 +1,9 @@
+#pragma prefix "sanas"
+
+module TaoTester
+{
+	interface IExampleZero
+	{
+		void SetString(in string inString);
+	};
+};

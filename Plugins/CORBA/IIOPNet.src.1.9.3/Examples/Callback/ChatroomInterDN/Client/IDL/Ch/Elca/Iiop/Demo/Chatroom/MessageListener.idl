@@ -1,0 +1,44 @@
+// auto-generated IDL file by CLS to IDL mapper
+
+// Ch\Elca\Iiop\Demo\Chatroom\MessageListener.idl
+
+#ifndef __Ch_Elca_Iiop_Demo_Chatroom_Message__
+module Ch {
+module Elca {
+module Iiop {
+module Demo {
+module Chatroom {
+
+valuetype Message;
+};
+};
+};
+};
+};
+#endif
+#include "orb.idl"
+#include "Predef.idl"
+
+#include "Ch\Elca\Iiop\GenericUserException.idl"
+#ifndef __Ch_Elca_Iiop_Demo_Chatroom_MessageListener__
+#define __Ch_Elca_Iiop_Demo_Chatroom_MessageListener__
+module Ch {
+module Elca {
+module Iiop {
+module Demo {
+module Chatroom {
+
+abstract interface MessageListener {
+oneway void NotifyMessage(in ::Ch::Elca::Iiop::Demo::Chatroom::Message msg);
+};
+
+#pragma ID MessageListener "IDL:Ch/Elca/Iiop/Demo/Chatroom/MessageListener:1.0"
+
+};
+};
+};
+};
+};
+
+#include "Ch\Elca\Iiop\Demo\Chatroom\Message.idl"
+#endif

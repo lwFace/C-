@@ -1,0 +1,5 @@
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\CLSToIDLGenerator\binSD\ClsToIdlGenerator.exe
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\CLSToIDLGenerator\binSD\IIOPChannel.dll
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\CLSToIDLGenerator\binSD\nunit.framework.dll
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\CLSToIDLGenerator\binSD\IIOPChannel.pdb
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\CLSToIDLGenerator\obj\Debug\ClsToIdlGenerator.exe

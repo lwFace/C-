@@ -1,0 +1,10 @@
+#pragma prefix "SLB"
+
+module ExampleInterfaces
+{
+	// The adder interface
+	interface IAdder
+	{
+        double add(in double arg1, in double arg2);
+	};
+};

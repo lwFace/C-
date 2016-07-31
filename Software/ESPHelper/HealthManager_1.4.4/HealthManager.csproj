@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B89BC04-5CD8-4248-B324-414059661E8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthManager</RootNamespace>
+    <AssemblyName>HealthManager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="dcpssacsAssembly, Version=6.1.1.15464, Culture=neutral, PublicKeyToken=5b9310ab51310fa9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dds_pt\dds_pt\bin\Debug\dcpssacsAssembly.dll</HintPath>
+    </Reference>
+    <Reference Include="dds_pt">
+      <HintPath>..\..\dds_pt\dds_pt\bin\Debug\dds_pt.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DDSEventControler.cs" />
+    <Compile Include="dds\AbstractDDSData.cs" />
+    <Compile Include="dds\client\ClientDDSData.cs" />
+    <Compile Include="dds\client\ClientDDSTest.cs" />
+    <Compile Include="dds\DDSData.cs" />
+    <Compile Include="dds\IDDSData.cs" />
+    <Compile Include="dds\service\DeviceDDSData.cs" />
+    <Compile Include="dds\service\ServiceDDSData.cs" />
+    <Compile Include="dds\service\ServiceModuleDDSData.cs" />
+    <Compile Include="HealthManager.cs" />
+    <Compile Include="IEventListener.cs" />
+    <Compile Include="igmp\IGMPAddr.cs" />
+    <Compile Include="igmp\IGMPManager.cs" />
+    <Compile Include="IMessageEventListener.cs" />
+    <Compile Include="IStatusChangeListener.cs" />
+    <Compile Include="IStatusProvider.cs" />
+    <Compile Include="MessageEvent.cs" />
+    <Compile Include="MessageReceiveListener.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusChangeEvent.cs" />
+    <Compile Include="StringHelperClass.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

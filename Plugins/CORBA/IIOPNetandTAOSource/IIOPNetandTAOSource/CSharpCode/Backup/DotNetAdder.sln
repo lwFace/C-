@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IIOPExampleInterfaces", "IIOPExampleInterfaces\IIOPExampleInterfaces.csproj", "{858086E2-4E00-4C59-A55D-135EC05D34B4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAdderServer", "DotNetAdderServer\DotNetAdderServer.csproj", "{F5F52588-95E1-4D3C-9BCF-93A144212B64}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAdderClient", "DotNetAdderClient\DotNetAdderClient.csproj", "{619A49D9-C260-4454-9B8F-3AE6BA42487A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetNSAdderClient", "DotNetNSAdderClient\DotNetNSAdderClient.csproj", "{D188654B-2B33-44F2-8286-B32A6AF16555}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetNSAdderServer", "DotNetNSAdderServer\DotNetNSAdderServer.csproj", "{35DEEB9A-DAF7-43AD-80AA-90A5B7260D22}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{858086E2-4E00-4C59-A55D-135EC05D34B4}.Debug.ActiveCfg = Debug|.NET
+		{858086E2-4E00-4C59-A55D-135EC05D34B4}.Debug.Build.0 = Debug|.NET
+		{858086E2-4E00-4C59-A55D-135EC05D34B4}.Release.ActiveCfg = Release|.NET
+		{858086E2-4E00-4C59-A55D-135EC05D34B4}.Release.Build.0 = Release|.NET
+		{F5F52588-95E1-4D3C-9BCF-93A144212B64}.Debug.ActiveCfg = Debug|.NET
+		{F5F52588-95E1-4D3C-9BCF-93A144212B64}.Debug.Build.0 = Debug|.NET
+		{F5F52588-95E1-4D3C-9BCF-93A144212B64}.Release.ActiveCfg = Release|.NET
+		{F5F52588-95E1-4D3C-9BCF-93A144212B64}.Release.Build.0 = Release|.NET
+		{619A49D9-C260-4454-9B8F-3AE6BA42487A}.Debug.ActiveCfg = Debug|.NET
+		{619A49D9-C260-4454-9B8F-3AE6BA42487A}.Debug.Build.0 = Debug|.NET
+		{619A49D9-C260-4454-9B8F-3AE6BA42487A}.Release.ActiveCfg = Release|.NET
+		{619A49D9-C260-4454-9B8F-3AE6BA42487A}.Release.Build.0 = Release|.NET
+		{D188654B-2B33-44F2-8286-B32A6AF16555}.Debug.ActiveCfg = Debug|.NET
+		{D188654B-2B33-44F2-8286-B32A6AF16555}.Debug.Build.0 = Debug|.NET
+		{D188654B-2B33-44F2-8286-B32A6AF16555}.Release.ActiveCfg = Release|.NET
+		{D188654B-2B33-44F2-8286-B32A6AF16555}.Release.Build.0 = Release|.NET
+		{35DEEB9A-DAF7-43AD-80AA-90A5B7260D22}.Debug.ActiveCfg = Debug|.NET
+		{35DEEB9A-DAF7-43AD-80AA-90A5B7260D22}.Debug.Build.0 = Debug|.NET
+		{35DEEB9A-DAF7-43AD-80AA-90A5B7260D22}.Release.ActiveCfg = Release|.NET
+		{35DEEB9A-DAF7-43AD-80AA-90A5B7260D22}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IIOPChannel\binSD\IIOPChannel.dll
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IIOPChannel\binSD\IIOPChannel.pdb
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IIOPChannel\binSD\nunit.framework.dll
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IIOPChannel\obj\Debug\IIOPChannel.csprojResolveAssemblyReference.cache
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IIOPChannel\obj\Debug\IIOPChannel.dll
+D:\Hirain\TechnicalResearch\CORBA\IIOPNet.src.1.9.3\IIOPChannel\obj\Debug\IIOPChannel.pdb

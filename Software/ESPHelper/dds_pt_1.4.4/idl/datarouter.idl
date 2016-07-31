@@ -1,0 +1,347 @@
+/*
+* Description: OpenSplice DDS test IDL;
+* Author: yonggang;
+* Date: 2010-08-02
+* version: 2.0
+*
+* CopyRight of Hirain
+*/
+
+module datarouter
+{
+	struct Payload
+	{
+		octet value;
+	};
+
+	enum DataType 
+	{
+		F_SHORT,
+		F_UNSIGNED_SHORT,
+		F_LONG,
+		F_UNSIGNED_LONG,
+		F_LONG_LONG,
+		F_UNSIGNED_LONG_LONG,
+		F_FLOAT,
+		F_DOUBLE,
+		F_CHAR,
+		F_BOOLEAN,
+		F_STRING,
+		F_RAWDATA
+	};
+
+	typedef sequence<octet> RawdataType;
+
+	union flightType switch (DataType)
+	{
+	case F_SHORT: short short_value;
+	case F_UNSIGNED_SHORT: unsigned short unshort_value;
+	case F_LONG: long  long_value;
+	case F_UNSIGNED_LONG: unsigned long  unlong_value;
+	case F_LONG_LONG: long long      long_long_value;
+	case F_UNSIGNED_LONG_LONG: unsigned long long  unlong_long_value;
+	case F_FLOAT:   float float_value;
+	case F_DOUBLE:  double double_value;
+	case F_CHAR:    char char_value;
+	case F_BOOLEAN: boolean boolean_value;
+	case F_STRING:  string string_value;
+	case F_RAWDATA: RawdataType  rawdata_value;
+	};
+
+	struct FLIGHT_msg
+	{
+		string         path;
+		flightType     value;
+	};
+#pragma keylist FLIGHT_msg path
+
+	struct Node
+	{
+		string			name;
+		string			value;
+		sequence<Node> 	children;
+		sequence<Node> 	attributes;
+	};
+
+	struct EVENT_msg
+	{
+		unsigned long	event_id;  // 事件编号
+		unsigned long	time;      // 事件发生时间 TBD
+		unsigned long	nodeId;
+		string			name;
+		string			type;      // 事件类型
+		Node			info;
+	};
+#pragma keylist EVENT_msg event_id
+
+	typedef string string128[128];
+	struct CONTROL_msg
+	{
+		unsigned long    hardware;      // 硬件模块标识;
+		string           cmd;           // 控制命令;
+		string128        information;   // 传递IO管理模块信息;
+		sequence<octet>  payload;       // 
+	};
+#pragma keylist CONTROL_msg hardware
+
+	typedef string d_string128[128];
+	struct CONTROL_STATUS_msg
+	{
+		unsigned long    hardware;      // 硬件模块标识;
+		string           cmd;           // 回传的控制命令状态信息;
+		d_string128      information;   // 传递IO管理模块信息;
+		sequence<octet>  payload;       // 
+	};
+#pragma keylist CONTROL_STATUS_msg hardware
+
+	typedef sequence<Payload> PayloadTypeAAMS429;
+
+	struct AAMS_429_msg
+	{
+		unsigned long    id;          // ICD 块号，根据ICD而定
+		unsigned short	 label;
+		unsigned long src;		//源端口标识 channelSN
+		unsigned long reserved; //保留
+		unsigned long    sec;        // TBD // 数据块的时戳
+		unsigned long	 usec;
+		PayloadTypeAAMS429  payload;     // 有效数据
+	};
+#pragma keylist AAMS_429_msg id
+
+	struct AAMS_429_Channel
+	{
+		unsigned long id;
+		sequence<AAMS_429_msg> msgs;
+	};
+#pragma keylist AAMS_429_Channel id
+
+	typedef sequence<Payload> PayloadTypeAAMSnobus;
+
+	struct AAMS_NoBus_msg
+	{
+		unsigned long    id;          // ICD 块号，根据ICD而定
+		unsigned long src;		//源端口标识 channelSN
+		unsigned long reserved; //保留
+		unsigned long    sec;        // TBD // 数据块的时戳
+		unsigned long	 usec;
+		PayloadTypeAAMSnobus  payload;     // 有效数据
+	};
+#pragma keylist AAMS_NoBus_msg id
+
+	struct AAMS_NoBus_Channel
+	{
+		unsigned long id;
+		sequence<AAMS_NoBus_msg> msgs;
+	};
+#pragma keylist AAMS_NoBus_Channel id
+
+	struct DATA_STATUS
+	{ 
+		unsigned short tf;             // terminal flag bit (LSB) 
+		unsigned short dba;            // dynamic bus acceptance flag bit 
+		unsigned short sf;             // subsystem flag bit 
+		unsigned short busy;           // busy flag bit 
+		unsigned short bcr;            // broadcast received bit 
+		unsigned short res;            // unused bits 
+		unsigned short sr;             // service request 
+		unsigned short inst;           // instrumentation bit 
+		unsigned short me;             // message error 
+		unsigned short rtaddr;         // rt address field (MSB) 
+	}; 
+
+	typedef sequence<Payload> PayloadTypeAAMS1553;
+
+	struct AAMS_1553_msg
+	{
+		unsigned long id;
+		unsigned long mode;
+		unsigned long src_addr;
+		unsigned long sub_src_addr;
+		unsigned long dst_addr;
+		unsigned long sub_dst_addr;
+		DATA_STATUS status1;
+		DATA_STATUS status2;
+		unsigned long src;		//源端口标识 channelSN
+		unsigned long reserved; //保留
+		unsigned long sec;
+		unsigned long usec;
+		unsigned long length;
+		PayloadTypeAAMS1553 payload;
+	};
+#pragma keylist AAMS_1553_msg id
+
+	struct AAMS_1553_Channel
+	{
+		unsigned long id;
+		sequence<AAMS_1553_msg> msgs;
+	};
+#pragma keylist AAMS_1553_Channel id
+
+	typedef sequence<Payload> PayloadTypeAAMS422;
+
+	struct AAMS_422_msg
+	{
+		unsigned long id;
+		PayloadTypeAAMS422 frame_begin;
+		PayloadTypeAAMS422 frame_end;
+		unsigned long src;		//源端口标识 channelSN
+		unsigned long reserved; //保留
+		unsigned long sec;
+		unsigned long usec;
+		unsigned long length;
+		PayloadTypeAAMS422 payload;
+	};
+#pragma keylist AAMS_422_msg id
+
+	struct AAMS_422_Channel
+	{
+		unsigned long id;
+		sequence<AAMS_422_msg> msgs;
+	};
+#pragma keylist AAMS_422_Channel id
+
+	typedef sequence<Payload> PayloadTypeAAMScan;
+
+	struct AAMS_CAN_msg
+	{
+		unsigned long id;          // ICD 块号，根据 ICD 而定 
+		unsigned long type;        // 数据类型 ( 标准帧、扩展帧 ) 
+		unsigned long can_id;      // CAN 报文 ID; 
+		unsigned long src;		//源端口标识 channelSN
+		unsigned long reserved; //保留
+		unsigned long sec;         // 数据块时戳：秒 ; 
+		unsigned long usec;         // 数据块时戳：微秒 ; 
+		PayloadTypeAAMScan payload;     // 有效数据 
+	};
+#pragma keylist AAMS_CAN_msg id
+
+	struct AAMS_CAN_Channel
+	{
+		unsigned long id;
+		sequence<AAMS_CAN_msg> msgs;
+	};
+#pragma keylist AAMS_CAN_Channel id
+
+	typedef sequence<Payload> PayloadTypeAAMSrfm;
+	struct AAMS_RFM_msg 
+	{ 
+		unsigned long id; 
+		unsigned long src;
+		unsigned long long addr; 
+		unsigned long sec; 
+		unsigned long usec; 
+		unsigned long length; 
+		PayloadTypeAAMSrfm payload; 
+	}; 
+
+#pragma keylist AAMS_RFM_msg id 
+
+	struct AAMS_RFM_Channel 
+	{ 
+		unsigned long id; 
+		sequence<AAMS_RFM_msg> msgs; 
+	}; 
+#pragma keylist AAMS_RFM_Channel id 
+
+	struct HDLC_PARA
+	{
+		octet slave_addr;//从机地址
+		octet type;//1:INFO 2:MONITOR 3:UNCORE，枚举扩展不方便
+		octet control_order; //控制字，上位机进行控制字的详细解析
+
+	};
+	typedef sequence<Payload> PayloadTypeAAMShdlc;
+	struct AAMS_HDLC_msg
+	{
+		unsigned long id;
+		unsigned long src;
+		unsigned long block_id;//指令字，详见615 HDLC 4.3.3.2.1
+		unsigned long offset;//偏移量，由于HDLC一条报文可能传输多个icd数据，所以需要偏移量显示指示ICD报文在原始报文中位置
+		unsigned long reserved;
+		HDLC_PARA parse;
+		unsigned long sec;
+		unsigned long usec;
+		unsigned long length;
+		PayloadTypeAAMShdlc  payload;
+	};
+#pragma keylist AAMS_HDLC_msg id 
+
+	struct AAMS_HDLC_Channel 
+	{ 
+		unsigned long id; 
+		sequence<AAMS_HDLC_msg> msgs; 
+	}; 
+#pragma keylist AAMS_HDLC_Channel id 
+
+	struct Eth_PARA
+	{
+		octet src_mac[6]; // 源MAC;
+		octet dst_mac[6]; // 目的MAC;
+		unsigned long src_ip; 
+		unsigned long dst_ip;
+		unsigned short src_port;
+		unsigned short dst_port;
+	};
+
+	typedef sequence<Payload> PayloadTypeAAMSeth;
+	struct AAMS_Eth_msg 
+	{ 
+		unsigned long id; 
+		Eth_PARA parameter;
+		unsigned long sec; 
+		unsigned long usec; 
+		unsigned long length; 
+		PayloadTypeAAMSeth payload; 
+	}; 
+
+#pragma keylist AAMS_Eth_msg id 
+
+	struct AAMS_Eth_Channel 
+	{ 
+		unsigned long id; 
+		sequence<AAMS_Eth_msg> msgs; 
+	}; 
+#pragma keylist AAMS_Eth_Channel id 
+
+
+	//	typedef sequence<Payload> PayloadTypeAAMS1394;
+	//	struct AAMS_1394_msg
+	//	{
+	//		unsigned long id;
+	//		unsigned long sec;
+	//		unsigned long usec;
+	//		
+	//		PayloadTypeAAMS1394  payload;
+	//	};
+	//#pragma keylist AAMS_1394_msg id
+
+	//	struct AAMS_1394_Channel 
+	//	{ 
+	//		unsigned long id; 
+	//		sequence<AAMS_1394_msg> msgs; 
+	//	}; 
+	//#pragma keylist AAMS_1394_Channel id 
+
+	typedef sequence<Payload> PayloadTypeAAMSIMBADB;
+	struct AAMS_IMBADB_msg
+	{
+		unsigned long id;
+		unsigned long src;
+		unsigned long type;
+		unsigned long label;
+		unsigned long err;
+		unsigned long crc;
+		unsigned long sec;
+		unsigned long usec;
+		PayloadTypeAAMSIMBADB  payload;
+	};
+#pragma keylist AAMS_IMBADB_msg id
+
+	struct AAMS_IMBADB_Channel 
+	{ 
+		unsigned long id; 
+		sequence<AAMS_IMBADB_msg> msgs; 
+	}; 
+#pragma keylist AAMS_IMBADB_Channel id 
+
+};

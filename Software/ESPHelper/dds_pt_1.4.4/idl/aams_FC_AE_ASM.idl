@@ -1,0 +1,38 @@
+/*
+* Description: OpenSplice DDS test IDL;
+* Author: zhiyuan.dai
+* Date: 2015-08-02
+* version: 2.0
+*
+* CopyRight of Hirain
+*/
+
+#include "datarouter.idl"
+
+module datarouter
+{
+	typedef sequence<Payload> PayloadTypeAAMS_FC_AE_ASM;
+
+	struct AAMS_FC_AE_ASM_msg
+	{
+		unsigned long  id;
+		unsigned long  msgId;//消息ID，用来作为主机系统中消息的唯一标识，接收者根据该标识解释消息
+		unsigned long  vendorSpecificSecurity;//保留安全字段：安全信息标识
+		unsigned long  reserved;//保留
+		unsigned long  priority;//优先级，0优先级最高，127优先级最低
+		unsigned long  msgLength;//消息负载长度
+		unsigned long  lByte;//L字段0：代表消息负载长度为1677217比特，1消息负载长度为0比特
+	 	unsigned long sec; //时间戳
+	 	unsigned long usec; //时间戳
+		PayloadTypeAAMS_FC_AE_ASM payload;    // 有效数据 
+	};
+#pragma keylist AAMS_FC_AE_ASM_msg id
+
+	struct  AAMS_FC_AE_ASM_Channel
+	{
+		unsigned long id;
+		sequence<AAMS_FC_AE_ASM_msg> msgs;
+	};
+#pragma keylist AAMS_FC_AE_ASM_Channel id	
+
+};

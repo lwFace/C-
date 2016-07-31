@@ -1,0 +1,39 @@
+/*
+* Description: A664 AAMS Topic IDL;
+* Author: jialun.liu;
+* Date: 2015-01-12
+* version: 1.0
+*
+* CopyRight of Hirain
+*/
+
+#include "datarouter.idl"
+
+module datarouter
+{
+	typedef sequence<Payload> PayloadTypeAAMSafdx;
+
+	struct AAMS_AFDX_msg
+	{
+		unsigned long    id;    // ICD块号,根据ICD而定;
+		unsigned long		 vl;		// VL
+		unsigned long		 comPort;//ComPort
+		unsigned long		 net_flag;// 0=NET_A;1=NET_B;other=UNKNOWN
+		unsigned long 	 src;		//源端口标识 channelSN
+		unsigned long    sec;   // 数据块的时戳
+		unsigned long	 	 usec; 
+		unsigned long	 	 length; //总长度
+		PayloadTypeAAMSafdx  packet_header;  // ETH HEADER;
+		PayloadTypeAAMSafdx  packet_payload; // ICD;
+		PayloadTypeAAMSafdx  packet_crc;     // CRC;
+	};
+#pragma keylist AAMS_AFDX_msg id
+
+	struct AAMS_AFDX_Channel
+	{
+		unsigned long id;
+		sequence<AAMS_AFDX_msg> msgs;
+	};
+#pragma keylist AAMS_AFDX_Channel id
+
+};

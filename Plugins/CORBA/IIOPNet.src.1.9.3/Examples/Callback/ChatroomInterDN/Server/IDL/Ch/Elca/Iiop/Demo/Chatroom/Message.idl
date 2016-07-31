@@ -1,0 +1,31 @@
+// auto-generated IDL file by CLS to IDL mapper
+
+// Ch\Elca\Iiop\Demo\Chatroom\Message.idl
+
+#include "orb.idl"
+#include "Predef.idl"
+
+#ifndef __Ch_Elca_Iiop_Demo_Chatroom_Message__
+#define __Ch_Elca_Iiop_Demo_Chatroom_Message__
+module Ch {
+module Elca {
+module Iiop {
+module Demo {
+module Chatroom {
+
+valuetype Message {
+private ::CORBA::WStringValue m_msg;
+private ::CORBA::WStringValue m_originator;
+readonly attribute ::CORBA::WStringValue Msg;
+readonly attribute ::CORBA::WStringValue Originator;
+};
+
+#pragma ID Message "IDL:Ch/Elca/Iiop/Demo/Chatroom/Message:1.0"
+
+};
+};
+};
+};
+};
+
+#endif
