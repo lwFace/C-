@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Card Name="CPCI1553" Num="2">
+  <Channel Name="Chn" Num="2">
+    <Node Name="BC"/>
+    <Node Name="RT"/>
+    <Node Name="BM"/>
+  </Channel>
+</Card>
+
