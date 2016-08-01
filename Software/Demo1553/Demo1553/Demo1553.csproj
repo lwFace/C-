@@ -11,7 +11,8 @@
     <RootNamespace>Demo1553</RootNamespace>
     <AssemblyName>Demo1553</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -44,10 +45,13 @@
     <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="HexEditor">
-      <HintPath>..\..\..\TechnicalResearch\Plugins\插件及说明\HexEditor\HexEditor.dll</HintPath>
+      <HintPath>.\HexEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>.\log4net.dll</HintPath>
     </Reference>
     <Reference Include="outputControl">
-      <HintPath>..\..\..\TechnicalResearch\Plugins\插件及说明\OutputControl\outputControl.dll</HintPath>
+      <HintPath>.\outputControl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,6 +86,7 @@
     <Compile Include="Class\Interface1553.cs" />
     <Compile Include="Class\Node.cs" />
     <Compile Include="Class\RT.cs" />
+    <Compile Include="LogHelper.cs" />
     <Compile Include="RTControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,7 +119,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

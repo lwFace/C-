@@ -21,7 +21,7 @@ namespace Demo1553
         {
             return new RT();
         }
-        public BM GetBC()
+        public BM GetBM()
         {
             return new BM();
         }

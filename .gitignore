@@ -1,0 +1,14 @@
+*.sdf
+Software/Demo1553/Interface1553/Interface1553.vcxproj.user
+*.cache
+Software/Demo1553/Demo1553/obj/x86/Debug/Demo1553.pdb
+*.ipch
+*.exp
+Software/Demo1553/Demo1553/bin/Debug/Interface1553.pdb
+*.suo
+Software/Demo1553/Demo1553.opensdf
+*.pdb
+*.exe
+Software/Demo1553/Demo1553/bin/Debug/Interface1553.ilk
+*.lib
+Software/Demo1553/Demo1553/Demo1553.csproj.user

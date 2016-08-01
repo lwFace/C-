@@ -24,13 +24,24 @@ namespace Demo1553
         
         private void MainFrm_Load(object sender, EventArgs e)
         {
+            try
+            {
+                LoadResource();
+            }
+            catch(Exception ex)
+            {
+                LogHelper.WriteLog(typeof(MainFrm), ex);
+                outputControl1.LogError(ex.Message);
+            }
+            
+
             /*For test*/
            // BCControl ctl = new BCControl();
             RTControl ctl = new RTControl();
             ctl.Dock = DockStyle.Fill;
             this.panelCenter.Controls.Add(ctl);
 
-            LoadResource();
+          
             /* Temp code */
             BoundResourceBase resPrj = new BoundResourceProj();
             resPrj.ID = 0;
@@ -73,7 +84,7 @@ namespace Demo1553
 
             this.outputControl1.LogInfo("板卡打开成功！");
             //Interface1553.init("Hello");
-            CardManager.init();
+            CardManager.Init();
 
             string error = Interface1553.getLastErr();
             System.Console.WriteLine(error);
@@ -84,7 +95,15 @@ namespace Demo1553
         /// </summary>
         private void LoadResource()
         {
-
+            try
+            {
+                /*解析xml文件，更新listResource，更新cardManager*/
+            }
+            catch (Exception ex)
+            {
+                
+                throw new Exception("获取资源信息失败！请检查资源配置文件。");
+            }
         }
 
     }
