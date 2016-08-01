@@ -12,3 +12,4 @@ Software/Demo1553/Demo1553.opensdf
 Software/Demo1553/Demo1553/bin/Debug/Interface1553.ilk
 *.lib
 Software/Demo1553/Demo1553/Demo1553.csproj.user
+*.tlog

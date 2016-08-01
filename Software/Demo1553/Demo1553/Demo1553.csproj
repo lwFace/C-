@@ -66,12 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\BC.cs" />
-    <Compile Include="BCControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BCControl.Designer.cs">
-      <DependentUpon>BCControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="BoundData\BoundMessage.cs" />
     <Compile Include="BoundData\BoundResourceBase.cs" />
     <Compile Include="BoundData\BoundResourceCard.cs" />
@@ -86,13 +80,19 @@
     <Compile Include="Class\Interface1553.cs" />
     <Compile Include="Class\Node.cs" />
     <Compile Include="Class\RT.cs" />
+    <Compile Include="FrmBC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBC.Designer.cs">
+      <DependentUpon>FrmBC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRT.Designer.cs">
+      <DependentUpon>FrmRT.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogHelper.cs" />
-    <Compile Include="RTControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RTControl.Designer.cs">
-      <DependentUpon>RTControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,11 +101,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BCControl.resx">
-      <DependentUpon>BCControl.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBC.resx">
+      <DependentUpon>FrmBC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RTControl.resx">
-      <DependentUpon>RTControl.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRT.resx">
+      <DependentUpon>FrmRT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrm.resx">
       <DependentUpon>MainFrm.cs</DependentUpon>

@@ -1,13 +1,13 @@
 ﻿namespace Demo1553
 {
-    partial class RTControl
+    partial class FrmRT
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,21 +20,14 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPageConfig = new DevExpress.XtraTab.XtraTabPage();
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupBoxRTSetting1 = new System.Windows.Forms.GroupBox();
             this.btnDisselectAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.checkButtonRTr30 = new DevExpress.XtraEditors.CheckButton();
@@ -47,6 +40,11 @@
             this.checkButtonRTr23 = new DevExpress.XtraEditors.CheckButton();
             this.checkButtonRTr22 = new DevExpress.XtraEditors.CheckButton();
             this.checkButtonRTr21 = new DevExpress.XtraEditors.CheckButton();
+            this.xtraTabPageConfig = new DevExpress.XtraTab.XtraTabPage();
+            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.groupBoxRTSetting1 = new System.Windows.Forms.GroupBox();
             this.checkButtonRTr16 = new DevExpress.XtraEditors.CheckButton();
             this.checkButtonRTr17 = new DevExpress.XtraEditors.CheckButton();
             this.checkButtonRTr18 = new DevExpress.XtraEditors.CheckButton();
@@ -67,129 +65,24 @@
             this.checkButtonRTr2 = new DevExpress.XtraEditors.CheckButton();
             this.checkButtonRTr3 = new DevExpress.XtraEditors.CheckButton();
             this.checkButtonRTr4 = new DevExpress.XtraEditors.CheckButton();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPageMonitor = new DevExpress.XtraTab.XtraTabPage();
             this.groupControlPayload = new DevExpress.XtraEditors.GroupControl();
             this.hexBoxBcPayload = new Be.Windows.Forms.HexBox();
-            this.xtraTabPageMonitor = new DevExpress.XtraTab.XtraTabPage();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-            this.xtraTabControl1.SuspendLayout();
             this.xtraTabPageConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
-            this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             this.splitContainerControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.groupBoxRTSetting1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).BeginInit();
             this.groupControlPayload.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPageConfig;
-            this.xtraTabControl1.Size = new System.Drawing.Size(785, 260);
-            this.xtraTabControl1.TabIndex = 0;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPageConfig,
-            this.xtraTabPageMonitor});
-            // 
-            // xtraTabPageConfig
-            // 
-            this.xtraTabPageConfig.Controls.Add(this.splitContainerControl2);
-            this.xtraTabPageConfig.Name = "xtraTabPageConfig";
-            this.xtraTabPageConfig.Size = new System.Drawing.Size(779, 231);
-            this.xtraTabPageConfig.Text = "Configurate";
-            // 
-            // splitContainerControl1
-            // 
-            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.xtraTabControl1);
-            this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.groupControlPayload);
-            this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(785, 378);
-            this.splitContainerControl1.SplitterPosition = 260;
-            this.splitContainerControl1.TabIndex = 5;
-            this.splitContainerControl1.Text = "splitContainerControl1";
-            // 
-            // splitContainerControl2
-            // 
-            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl2.Name = "splitContainerControl2";
-            this.splitContainerControl2.Panel1.Controls.Add(this.gridControl1);
-            this.splitContainerControl2.Panel1.Text = "Panel1";
-            this.splitContainerControl2.Panel2.Controls.Add(this.groupBoxRTSetting1);
-            this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(779, 231);
-            this.splitContainerControl2.SplitterPosition = 387;
-            this.splitContainerControl2.TabIndex = 5;
-            this.splitContainerControl2.Text = "splitContainerControl2";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(387, 231);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.UseEmbeddedNavigator = true;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // groupBoxRTSetting1
-            // 
-            this.groupBoxRTSetting1.Controls.Add(this.btnDisselectAll);
-            this.groupBoxRTSetting1.Controls.Add(this.btnSelectAll);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr30);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr29);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr24);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr25);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr26);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr27);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr28);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr23);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr22);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr21);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr16);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr17);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr18);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr19);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr20);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr15);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr14);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr13);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr8);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr9);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr10);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr11);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr12);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr7);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr6);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr5);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr1);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr2);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr3);
-            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr4);
-            this.groupBoxRTSetting1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxRTSetting1.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxRTSetting1.Name = "groupBoxRTSetting1";
-            this.groupBoxRTSetting1.Size = new System.Drawing.Size(387, 231);
-            this.groupBoxRTSetting1.TabIndex = 4;
-            this.groupBoxRTSetting1.TabStop = false;
             // 
             // btnDisselectAll
             // 
@@ -336,6 +229,86 @@
             this.checkButtonRTr21.Size = new System.Drawing.Size(50, 30);
             this.checkButtonRTr21.TabIndex = 56;
             this.checkButtonRTr21.Text = "21";
+            // 
+            // xtraTabPageConfig
+            // 
+            this.xtraTabPageConfig.Controls.Add(this.splitContainerControl2);
+            this.xtraTabPageConfig.Name = "xtraTabPageConfig";
+            this.xtraTabPageConfig.Size = new System.Drawing.Size(799, 231);
+            this.xtraTabPageConfig.Text = "Configurate";
+            // 
+            // splitContainerControl2
+            // 
+            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl2.Name = "splitContainerControl2";
+            this.splitContainerControl2.Panel1.Controls.Add(this.gridControl1);
+            this.splitContainerControl2.Panel1.Text = "Panel1";
+            this.splitContainerControl2.Panel2.Controls.Add(this.groupBoxRTSetting1);
+            this.splitContainerControl2.Panel2.Text = "Panel2";
+            this.splitContainerControl2.Size = new System.Drawing.Size(799, 231);
+            this.splitContainerControl2.SplitterPosition = 387;
+            this.splitContainerControl2.TabIndex = 5;
+            this.splitContainerControl2.Text = "splitContainerControl2";
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(387, 231);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.UseEmbeddedNavigator = true;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // groupBoxRTSetting1
+            // 
+            this.groupBoxRTSetting1.Controls.Add(this.btnDisselectAll);
+            this.groupBoxRTSetting1.Controls.Add(this.btnSelectAll);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr30);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr29);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr24);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr25);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr26);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr27);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr28);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr23);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr22);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr21);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr16);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr17);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr18);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr19);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr20);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr15);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr14);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr13);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr8);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr9);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr10);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr11);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr12);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr7);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr6);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr5);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr1);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr2);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr3);
+            this.groupBoxRTSetting1.Controls.Add(this.checkButtonRTr4);
+            this.groupBoxRTSetting1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxRTSetting1.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxRTSetting1.Name = "groupBoxRTSetting1";
+            this.groupBoxRTSetting1.Size = new System.Drawing.Size(407, 231);
+            this.groupBoxRTSetting1.TabIndex = 4;
+            this.groupBoxRTSetting1.TabStop = false;
             // 
             // checkButtonRTr16
             // 
@@ -597,13 +570,46 @@
             this.checkButtonRTr4.TabIndex = 39;
             this.checkButtonRTr4.Text = "4";
             // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            this.splitContainerControl1.Panel1.Controls.Add(this.xtraTabControl1);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.groupControlPayload);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(805, 371);
+            this.splitContainerControl1.SplitterPosition = 260;
+            this.splitContainerControl1.TabIndex = 6;
+            this.splitContainerControl1.Text = "splitContainerControl1";
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPageConfig;
+            this.xtraTabControl1.Size = new System.Drawing.Size(805, 260);
+            this.xtraTabControl1.TabIndex = 0;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPageConfig,
+            this.xtraTabPageMonitor});
+            // 
+            // xtraTabPageMonitor
+            // 
+            this.xtraTabPageMonitor.Name = "xtraTabPageMonitor";
+            this.xtraTabPageMonitor.Size = new System.Drawing.Size(779, 231);
+            this.xtraTabPageMonitor.Text = "Monitor";
+            // 
             // groupControlPayload
             // 
             this.groupControlPayload.Controls.Add(this.hexBoxBcPayload);
             this.groupControlPayload.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlPayload.Location = new System.Drawing.Point(0, 0);
             this.groupControlPayload.Name = "groupControlPayload";
-            this.groupControlPayload.Size = new System.Drawing.Size(785, 113);
+            this.groupControlPayload.Size = new System.Drawing.Size(805, 106);
             this.groupControlPayload.TabIndex = 1;
             this.groupControlPayload.Text = "原始报文信息";
             // 
@@ -620,34 +626,30 @@
             this.hexBoxBcPayload.SelectionLength = ((long)(0));
             this.hexBoxBcPayload.SelectionStart = ((long)(-1));
             this.hexBoxBcPayload.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.hexBoxBcPayload.Size = new System.Drawing.Size(781, 90);
+            this.hexBoxBcPayload.Size = new System.Drawing.Size(801, 83);
             this.hexBoxBcPayload.StringViewVisible = true;
             this.hexBoxBcPayload.TabIndex = 0;
             this.hexBoxBcPayload.UseFixedBytesPerLine = true;
             // 
-            // xtraTabPageMonitor
-            // 
-            this.xtraTabPageMonitor.Name = "xtraTabPageMonitor";
-            this.xtraTabPageMonitor.Size = new System.Drawing.Size(779, 349);
-            this.xtraTabPageMonitor.Text = "Monitor";
-            // 
-            // RTControl
+            // FrmRT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(805, 371);
             this.Controls.Add(this.splitContainerControl1);
-            this.Name = "RTControl";
-            this.Size = new System.Drawing.Size(785, 378);
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-            this.xtraTabControl1.ResumeLayout(false);
+            this.Name = "FrmRT";
+            this.Text = "FrmRT";
+            this.Load += new System.EventHandler(this.FrmRT_Load);
             this.xtraTabPageConfig.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
-            this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
             this.splitContainerControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.groupBoxRTSetting1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).EndInit();
             this.groupControlPayload.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -656,12 +658,6 @@
 
         #endregion
 
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPageConfig;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPageMonitor;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
-        private System.Windows.Forms.GroupBox groupBoxRTSetting1;
         private DevExpress.XtraEditors.SimpleButton btnDisselectAll;
         private DevExpress.XtraEditors.SimpleButton btnSelectAll;
         private DevExpress.XtraEditors.CheckButton checkButtonRTr30;
@@ -674,6 +670,11 @@
         private DevExpress.XtraEditors.CheckButton checkButtonRTr23;
         private DevExpress.XtraEditors.CheckButton checkButtonRTr22;
         private DevExpress.XtraEditors.CheckButton checkButtonRTr21;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPageConfig;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.GroupBox groupBoxRTSetting1;
         private DevExpress.XtraEditors.CheckButton checkButtonRTr16;
         private DevExpress.XtraEditors.CheckButton checkButtonRTr17;
         private DevExpress.XtraEditors.CheckButton checkButtonRTr18;
@@ -694,8 +695,9 @@
         private DevExpress.XtraEditors.CheckButton checkButtonRTr2;
         private DevExpress.XtraEditors.CheckButton checkButtonRTr3;
         private DevExpress.XtraEditors.CheckButton checkButtonRTr4;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPageMonitor;
         private DevExpress.XtraEditors.GroupControl groupControlPayload;
         private Be.Windows.Forms.HexBox hexBoxBcPayload;
     }

@@ -40,6 +40,7 @@
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -60,8 +61,6 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.panelCenter = new DevExpress.XtraEditors.PanelControl();
-            this.bar3 = new DevExpress.XtraBars.Bar();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanelResource.SuspendLayout();
@@ -69,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeListResource)).BeginInit();
             this.dockPanelOutPut.SuspendLayout();
             this.controlContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelCenter)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -187,6 +185,18 @@
             this.barButtonItem6.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.LargeGlyph")));
             this.barButtonItem6.Name = "barButtonItem6";
             // 
+            // bar3
+            // 
+            this.bar3.BarName = "Custom 4";
+            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.bar3.DockCol = 0;
+            this.bar3.DockRow = 0;
+            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar3.OptionsBar.AllowQuickCustomization = false;
+            this.bar3.OptionsBar.DrawDragBorder = false;
+            this.bar3.OptionsBar.UseWholeRow = true;
+            this.bar3.Text = "Custom 4";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -265,6 +275,7 @@
             this.treeListResource.OptionsView.ShowIndicator = false;
             this.treeListResource.Size = new System.Drawing.Size(192, 406);
             this.treeListResource.TabIndex = 0;
+            this.treeListResource.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeListResource_MouseDoubleClick);
             // 
             // dockPanelOutPut
             // 
@@ -357,32 +368,11 @@
             this.barButtonItem4.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.LargeGlyph")));
             this.barButtonItem4.Name = "barButtonItem4";
             // 
-            // panelCenter
-            // 
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(200, 55);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(609, 313);
-            this.panelCenter.TabIndex = 6;
-            // 
-            // bar3
-            // 
-            this.bar3.BarName = "Custom 4";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Custom 4";
-            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 511);
-            this.Controls.Add(this.panelCenter);
             this.Controls.Add(this.dockPanelOutPut);
             this.Controls.Add(this.dockPanelResource);
             this.Controls.Add(this.barDockControlLeft);
@@ -399,7 +389,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeListResource)).EndInit();
             this.dockPanelOutPut.ResumeLayout(false);
             this.controlContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelCenter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,7 +404,6 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanelOutPut;
         private DevExpress.XtraBars.Docking.ControlContainer controlContainer1;
         private outputControl.outputControl outputControl1;
-        private DevExpress.XtraEditors.PanelControl panelCenter;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;

@@ -25,6 +25,11 @@ namespace Demo1553
             return nodeType;
         }
 
+        public void SetNodeType(NodeType type)
+        {
+            nodeType = type;
+        }
+
         public void AddMsg(BoundMessage msg)
         {
             msgList.Add(msg);

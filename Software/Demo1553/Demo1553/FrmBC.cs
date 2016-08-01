@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Text;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,13 +11,18 @@ using Be.Windows.Forms;
 
 namespace Demo1553
 {
-    public partial class RTControl : DevExpress.XtraEditors.XtraUserControl
+    public partial class FrmBC : DevExpress.XtraEditors.XtraForm
     {
-        BindingList<BoundRTMessage> msgList = new BindingList<BoundRTMessage>(); 
-        public RTControl()
+        public BindingList<BoundMessage> MsgList = new BindingList<BoundMessage>();
+        public FrmBC()
         {
             InitializeComponent();
-            this.gridControl1.DataSource = msgList;
+        }
+
+        private void FrmBC_Load(object sender, EventArgs e)
+        {
+            /*For test */
+            this.gridControl1.DataSource = MsgList;
             this.gridView1.Columns["UUID"].Visible = false;
             this.gridView1.Columns["Payload"].Visible = false;
 
