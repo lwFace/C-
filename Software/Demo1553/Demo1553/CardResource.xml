@@ -1,9 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Card Name="CPCI1553" Num="2">
-  <Channel Name="Chn" Num="2">
-    <Node Name="BC"/>
-    <Node Name="RT"/>
-    <Node Name="BM"/>
-  </Channel>
-</Card>
+<Taget Num="2">
+	<Card Id="0" Name="CPCI1553_0" Num="2">
+	  <Channel Name="Chn_0" Id="0">
+	    <Node Name="BC"/>
+	    <Node Name="RT"/>
+	    <Node Name="BM"/>
+	  </Channel>
+	  <Channel Name="Chn_1" Id="1">
+	    <Node Name="BC"/>
+	    <Node Name="RT"/>
+	    <Node Name="BM"/>
+	  </Channel>
+	</Card>
+	<Card Id="1" Name="CPCI1553_1" Num="2">
+	  <Channel Name="Chn_0" Id="0">
+	    <Node Name="BC"/>
+	    <Node Name="RT"/>
+	    <Node Name="BM"/>
+	  </Channel>
+	  <Channel Name="Chn_1" Id="1">
+	    <Node Name="BC"/>
+	    <Node Name="RT"/>
+	    <Node Name="BM"/>
+	  </Channel>
+	</Card>
+</Taget>
 
