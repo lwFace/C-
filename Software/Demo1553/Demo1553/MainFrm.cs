@@ -93,8 +93,9 @@ namespace Demo1553
             treeListResource.Columns["Tag"].Visible = false;
 
             this.outputControl1.LogInfo("板卡打开成功！");
+            this.outputControl1.LogError("板卡打开失败！");
             //Interface1553.init("Hello");
-            CardManager.Init();
+         //   CardManager.Init();
 
            // string error = Interface1553.getLastErr();
           //  System.Console.WriteLine(error);

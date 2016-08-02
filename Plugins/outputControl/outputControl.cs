@@ -27,11 +27,10 @@ namespace outputControl
         {
             try
             {
+                this.outputStr.ForeColor = Color.Blue;
                 string t = DateTime.Now.ToLongTimeString().ToString();
-                outputStr.Text += "  " + t + "\t   " + msg;
-                outputStr.Text += "\r\n";
-                outputStr.SelectionStart = outputStr.Text.Length;
-                outputStr.ScrollToCaret();
+                this.outputStr.AppendText(t);
+                this.outputStr.AppendText("\t   " + msg + "\r\n");
             }
             catch (Exception ex)
             {
@@ -41,11 +40,10 @@ namespace outputControl
 
         public void LogError(string msg)
         {
+            this.outputStr.SelectionColor = Color.Red;
             string t = DateTime.Now.ToLongTimeString().ToString();
-            outputStr.Text += "  " + t + "\t   Error:\t" + msg;
-            outputStr.Text += "\r\n";
-            outputStr.SelectionStart = outputStr.Text.Length;
-            outputStr.ScrollToCaret();
+            this.outputStr.AppendText(t);
+            this.outputStr.AppendText("\t   " + msg + "\r\n");
         }
 
         private void btnClearInfo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

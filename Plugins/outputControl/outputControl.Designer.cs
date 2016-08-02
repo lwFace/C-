@@ -28,33 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(outputControl));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            this.outputStr = new DevExpress.XtraEditors.MemoEdit();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnClearInfo = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            ((System.ComponentModel.ISupportInitialize)(this.outputStr.Properties)).BeginInit();
+            this.outputStr = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // outputStr
-            // 
-            this.outputStr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.outputStr.Location = new System.Drawing.Point(0, 31);
-            this.outputStr.Name = "outputStr";
-            this.outputStr.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
-            this.outputStr.Properties.AppearanceReadOnly.Options.UseBackColor = true;
-            this.outputStr.Properties.ReadOnly = true;
-            this.outputStr.Size = new System.Drawing.Size(576, 222);
-            this.outputStr.TabIndex = 1;
-            this.outputStr.UseOptimizedRendering = true;
             // 
             // barManager1
             // 
@@ -126,6 +114,18 @@
             this.barDockControlRight.Location = new System.Drawing.Point(576, 31);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 222);
             // 
+            // outputStr
+            // 
+            this.outputStr.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.outputStr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.outputStr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.outputStr.Location = new System.Drawing.Point(0, 31);
+            this.outputStr.Name = "outputStr";
+            this.outputStr.ReadOnly = true;
+            this.outputStr.Size = new System.Drawing.Size(576, 222);
+            this.outputStr.TabIndex = 6;
+            this.outputStr.Text = "";
+            // 
             // outputControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -137,15 +137,14 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "outputControl";
             this.Size = new System.Drawing.Size(576, 253);
-            ((System.ComponentModel.ISupportInitialize)(this.outputStr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.MemoEdit outputStr;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
@@ -153,5 +152,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btnClearInfo;
+        private System.Windows.Forms.RichTextBox outputStr;
     }
 }
