@@ -94,7 +94,7 @@ namespace Demo1553
 
             this.outputControl1.LogInfo("板卡打开成功！");
             this.outputControl1.LogError("板卡打开失败！");
-            //Interface1553.init("Hello");
+            Interface1553.init("Hello");
          //   CardManager.Init();
 
            // string error = Interface1553.getLastErr();
@@ -142,7 +142,7 @@ namespace Demo1553
             string caption = node["Name"].ToString();
             int level = node.Level;
             TreeListNode n = node.ParentNode;
-            while (level-- >0)
+            while (level-- >1)
             {                
                 caption = n["Name"].ToString() + "/" + caption;
                 n = n.ParentNode;

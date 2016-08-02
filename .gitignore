@@ -1,7 +1,6 @@
 *.sdf
 *.user
 *.cache
-Software/Demo1553/Demo1553/obj/x86/Debug/Demo1553.pdb
 *.ipch
 *.exp
 *.pdb
@@ -11,10 +10,10 @@ Software/Demo1553/Demo1553/obj/x86/Debug/Demo1553.pdb
 *.exe
 *.ilk
 *.lib
-Software/Demo1553/Demo1553/Demo1553.csproj.user
 *.tlog
 Software/Demo1553/Demo1553/bin
 Software/Demo1553/Demo1553/obj
-*/*/obj/
-*/*/bin/
+**/obj/
+**/bin/
+**/Debug/
 *.bak
