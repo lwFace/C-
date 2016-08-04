@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Taget Num="2">
+<Target Num="2">
 	<Card Id="0" Name="CPCI1553_0" Num="2">
 	  <Channel Name="Chn_0" Id="0">
 	    <Node Name="BC"/>

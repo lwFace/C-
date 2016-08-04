@@ -126,11 +126,12 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             // 
             // xtraTabPageMonitor
             // 
             this.xtraTabPageMonitor.Name = "xtraTabPageMonitor";
-            this.xtraTabPageMonitor.Size = new System.Drawing.Size(634, 207);
+            this.xtraTabPageMonitor.Size = new System.Drawing.Size(577, 207);
             this.xtraTabPageMonitor.Text = "Monitor";
             // 
             // FrmBC

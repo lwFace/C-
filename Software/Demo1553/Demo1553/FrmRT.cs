@@ -13,7 +13,7 @@ namespace Demo1553
 {
     public partial class FrmRT : DevExpress.XtraEditors.XtraForm
     {
-        public BindingList<BoundMessage> MsgList = new BindingList<BoundMessage>();
+        public BindingList<BoundRTMessage> MsgList = new BindingList<BoundRTMessage>();
         public FrmRT()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace Demo1553
             this.gridView1.Columns["UUID"].Visible = false;
             this.gridView1.Columns["Payload"].Visible = false;
 
-            byte[] array = new byte[64];
+            byte[] array = new byte[8];
             DynamicByteProvider provider = new DynamicByteProvider(array);
             this.hexBoxBcPayload.ByteProvider = provider;
         }

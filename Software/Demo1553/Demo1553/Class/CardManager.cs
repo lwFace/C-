@@ -8,6 +8,7 @@ namespace Demo1553
 {
     public static class CardManager
     {
+        /*定义card的Dictionary*/
         static Dictionary<int, Card> cards;
         public static HR_CALLBACK m_callback;
         /// <summary>
@@ -51,6 +52,15 @@ namespace Demo1553
 
             Interface1553.init(xmlConf);
             return 0;
+        }
+        /// <summary>
+        /// 增加card的对象
+        /// </summary>
+        /// <param name="cardId"></param>
+        /// <param name="card"></param>
+        public static void AddCard(int cardId, Card card)
+        {
+            cards.Add(cardId,card);
         }
 
         /*start stop open close 等函数实现*/

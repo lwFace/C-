@@ -10,7 +10,7 @@ namespace Demo1553
     public class BoundResourceNode : BoundResourceBase
     {
         private NodeType nodeType;
-        private BindingList<BoundMessage> msgList = new BindingList<BoundMessage>();
+       // private BindingList<BoundMessage> msgList = new BindingList<BoundMessage>();
         public BoundResourceNode()
         {
             SetResourceType(ResourceType.Node);
@@ -30,10 +30,10 @@ namespace Demo1553
             nodeType = type;
         }
 
-        public void AddMsg(BoundMessage msg)
-        {
-            msgList.Add(msg);
-        }
+        //public void AddMsg(BoundMessage msg)
+        //{
+        //    msgList.Add(msg);
+        //}
        
     }
 }

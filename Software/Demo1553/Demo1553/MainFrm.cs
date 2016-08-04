@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraBars.Docking2010.Views.Tabbed;
 using DevExpress.XtraTreeList.Nodes;
+using System.Xml;
 
 namespace Demo1553
 {
@@ -41,64 +42,16 @@ namespace Demo1553
                 outputControl1.LogError(ex.Message);
             }
             
-
-            /*For test*/
-
-          
-            /* Temp code */
-            BoundResourceBase resPrj = new BoundResourceProj();
-            resPrj.ID = 0;
-            resPrj.Name = "Project";
-            listResource.Add(resPrj);
-            for (int i = 0; i < 2; i++)
-            {
-                BoundResourceBase resCard = new BoundResourceCard();
-                resCard.ID = i+1;
-                resCard.Name = "CPCI1553_" + i.ToString();
-                resCard.ParentID = 0;
-                listResource.Add(resCard);
-                for (int j = 0; j < 2; j++)
-                {
-                    BoundResourceBase resChn = new BoundResourceChannel();
-                    resChn.ID = 10 * (j + 1) + i;
-                    resChn.ParentID = i+1;
-                    resChn.Name = "Chn_" + j.ToString();
-                    resChn.Tag = resChn;
-                    listResource.Add(resChn);
-                    BoundResourceBase resNode = new BoundResourceNode();
-                    resNode.ID = 100 * (j + 1) + (i+1)*10;
-                    resNode.ParentID = resChn.ID;
-                    resNode.Name = "BC";
-                    ((BoundResourceNode)resNode).SetNodeType(NodeType.BC);
-                    resNode.Tag = resNode;
-                    listResource.Add(resNode);
-                    BoundResourceBase resNode1 = new BoundResourceNode();
-                    resNode1.ID = 100 * (j + 1) + (i + 1) * 10+1;
-                    resNode1.ParentID = resChn.ID;
-                    resNode1.Name = "RT";
-                    resNode1.Tag = resNode1;
-                    ((BoundResourceNode)resNode1).SetNodeType(NodeType.RT);
-                    listResource.Add(resNode1);
-                    BoundResourceBase resNode2 = new BoundResourceNode();
-                    resNode2.ID = 100 * (j + 1) + (i + 1) * 10+2;
-                    resNode2.ParentID = resChn.ID;
-                    resNode2.Name = "BM";
-                    resNode2.Tag = resNode2;
-                    ((BoundResourceNode)resNode2).SetNodeType(NodeType.BM);
-                    listResource.Add(resNode2);
-                }
-            }
             treeListResource.DataSource = listResource;
             treeListResource.ExpandAll();
             treeListResource.Columns["Tag"].Visible = false;
 
             this.outputControl1.LogInfo("板卡打开成功！");
-            this.outputControl1.LogError("板卡打开失败！");
-            Interface1553.init("Hello");
-         //   CardManager.Init();
+            //Interface1553.init("Hello");
+            //CardManager.Init();
 
            // string error = Interface1553.getLastErr();
-          //  System.Console.WriteLine(error);
+           // System.Console.WriteLine(error);
            
         }
         /// <summary>
@@ -109,6 +62,80 @@ namespace Demo1553
             try
             {
                 /*解析xml文件，更新listResource，更新cardManager*/
+                XmlDocument doc = new XmlDocument();
+                doc.Load("CardResource.xml");
+                XmlNode rootNode = doc.SelectSingleNode("Target");//得到根节点Target
+
+                BoundResourceBase resPrj = new BoundResourceProj();
+                resPrj.ID = 0;
+                resPrj.Name = "Project";
+                listResource.Add(resPrj);
+
+                int CardNodeBaseId = 1;
+                int ChannelNodeBaseId = 10;
+                int NodeNodeBaseId = 100;
+
+                /*解析card节点*/
+                foreach (XmlNode cardNode in rootNode.ChildNodes)
+                {
+                    XmlElement cardElement = (XmlElement)cardNode;
+                    int cardId = int.Parse(cardElement.GetAttribute("Id"));
+                    string cardName = cardElement.GetAttribute("Name");
+                    int cardNum=int.Parse(cardElement.GetAttribute("Num"));
+                    BoundResourceBase rescard = new BoundResourceCard();
+                    rescard.Name = cardName;
+                    rescard.ID = CardNodeBaseId++;
+                    rescard.ParentID = resPrj.ID;
+                    listResource.Add(rescard);
+                    Card card = new Card();
+                    card.Id = cardId;
+                    card.Name = cardName;
+                    card.Num = cardNum;
+                    
+                    /*解析channel节点*/
+                    foreach (XmlNode chnNode in cardNode.ChildNodes)
+                    {
+                        XmlElement chnElement = (XmlElement)chnNode;
+                        int channelId = int.Parse(chnElement.GetAttribute("Id"));
+                        string channelName = chnElement.GetAttribute("Name");
+                        BoundResourceBase reschannel = new BoundResourceChannel(); 
+                        reschannel.Name = channelName;
+                        reschannel.ID = ChannelNodeBaseId++;
+                        reschannel.ParentID = rescard.ID;
+                        listResource.Add(reschannel);
+                        Channel channel = new Channel();
+                        channel.Name=channelName;
+                        channel.Id = channelId;                       
+
+                        /*解析node节点*/
+                        foreach (XmlNode ndNode in chnNode.ChildNodes)
+                        {
+                            XmlElement ndElement = (XmlElement)ndNode;
+                            string nodeName = ndElement.GetAttribute("Name");
+                            BoundResourceBase resnode = new BoundResourceNode();
+                            resnode.Name = nodeName;
+                            resnode.ParentID = reschannel.ID;
+                            resnode.ID = NodeNodeBaseId++;
+                            listResource.Add(resnode);
+
+                            Node node;
+                            switch (nodeName)
+                            {
+                                case "BC":
+                                    node = new BC();                                    
+                                    break;
+                                default:
+                                    throw new Exception("错误的节点类型："+nodeName);
+                            }                           
+                            node.Name = nodeName;
+                            channel.AddNode(node);
+                        }//end node
+
+                        card.AddChannle(channel.Id, channel);
+                    }// end channel
+
+                    CardManager.AddCard(card.Id, card);
+                }//end foreach card
             }
             catch (Exception ex)
             {
@@ -117,6 +144,11 @@ namespace Demo1553
             }
         }
 
+        /// <summary>
+        /// 双击资源列表事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void treeListResource_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             BoundResourceBase res = treeListResource.FocusedNode["Tag"] as BoundResourceBase;
@@ -137,12 +169,18 @@ namespace Demo1553
                     break;
             }
         }
+
+        /// <summary>
+        /// 获取节点名称
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         private string GetNodeName(TreeListNode node)
         {
             string caption = node["Name"].ToString();
             int level = node.Level;
             TreeListNode n = node.ParentNode;
-            while (level-- >1)
+            while (level-- >0)
             {                
                 caption = n["Name"].ToString() + "/" + caption;
                 n = n.ParentNode;
@@ -160,10 +198,12 @@ namespace Demo1553
                     return;
                 }
             }
+            /*获取cardManager下的BC对象*/
+            BC bc = CardManager.GetCard(0).GetChannle(0).GetBC();
             switch (type)
             {
                 case NodeType.BC:
-                    newFrm = new FrmBC();
+                    newFrm = new FrmBC(bc);
                     break;
                 case NodeType.RT:
                     newFrm = new FrmRT();
@@ -179,6 +219,11 @@ namespace Demo1553
             newFrm.MdiParent = this;
             newFrm.Show();
 
+        }
+
+        private void barBtnInit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CardManager.Init();
         }
     }
 

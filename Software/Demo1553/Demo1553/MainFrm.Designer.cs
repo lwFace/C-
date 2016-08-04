@@ -37,7 +37,7 @@
             this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnInit = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -52,7 +52,6 @@
             this.dockPanelOutPut = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
             this.outputControl1 = new outputControl.outputControl();
-            this.barBtnInit = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barToggleSwitchItem1 = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
@@ -86,7 +85,6 @@
             this.barManager1.DockManager = this.dockManager1;
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barBtnInit,
             this.barSubItem1,
             this.barToggleSwitchItem1,
             this.barSubItem2,
@@ -100,7 +98,7 @@
             this.barSubItem6,
             this.barButtonItem5,
             this.barButtonItem6,
-            this.barButtonItem7,
+            this.barBtnInit,
             this.barButtonItem8});
             this.barManager1.MainMenu = this.bar1;
             this.barManager1.MaxItemId = 16;
@@ -146,7 +144,7 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnInit),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
             this.bar2.OptionsBar.DrawDragBorder = false;
@@ -161,13 +159,14 @@
             this.barButtonItem5.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.LargeGlyph")));
             this.barButtonItem5.Name = "barButtonItem5";
             // 
-            // barButtonItem7
+            // barBtnInit
             // 
-            this.barButtonItem7.Caption = "barButtonItem7";
-            this.barButtonItem7.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.Glyph")));
-            this.barButtonItem7.Id = 14;
-            this.barButtonItem7.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.LargeGlyph")));
-            this.barButtonItem7.Name = "barButtonItem7";
+            this.barBtnInit.Caption = "初始化";
+            this.barBtnInit.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnInit.Glyph")));
+            this.barBtnInit.Id = 14;
+            this.barBtnInit.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnInit.LargeGlyph")));
+            this.barBtnInit.Name = "barBtnInit";
+            this.barBtnInit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnInit_ItemClick);
             // 
             // barButtonItem8
             // 
@@ -304,14 +303,6 @@
             this.outputControl1.Size = new System.Drawing.Size(601, 93);
             this.outputControl1.TabIndex = 0;
             // 
-            // barBtnInit
-            // 
-            this.barBtnInit.Caption = "初始化";
-            this.barBtnInit.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnInit.Glyph")));
-            this.barBtnInit.Id = 0;
-            this.barBtnInit.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnInit.LargeGlyph")));
-            this.barBtnInit.Name = "barBtnInit";
-            // 
             // barSubItem1
             // 
             this.barSubItem1.Caption = "文件";
@@ -408,7 +399,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem barBtnInit;
+     //   private DevExpress.XtraBars.BarButtonItem barBtnInit;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarSubItem barSubItem2;
         private DevExpress.XtraBars.BarSubItem barSubItem3;
@@ -419,7 +410,7 @@
         private DevExpress.XtraBars.BarSubItem barSubItem6;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem barBtnInit;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;

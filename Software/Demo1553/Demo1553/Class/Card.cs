@@ -7,7 +7,13 @@ namespace Demo1553
 {
     public class Card
     {
+        public int Id;
+        public string Name;
+        public int Num;
+
         /*定义通道的Dictionary*/
+        Dictionary<int, Channel> channels;
+
         public Channel GetChannle(int chnId)
         {
             return new Channel();
@@ -17,9 +23,10 @@ namespace Demo1553
         /// 增加通道对象
         /// </summary>
         /// <param name="chnId"></param>
-        public void AddChannle(int chnId)
+        public void AddChannle(int chnId,Channel channel)
         {
             /*加入到Dictionary*/
+            channels.Add(chnId,channel);
         }
     }
 }
