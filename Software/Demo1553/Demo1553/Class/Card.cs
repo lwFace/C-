@@ -14,9 +14,14 @@ namespace Demo1553
         /*定义通道的Dictionary*/
         Dictionary<int, Channel> channels;
 
+        public Card()
+        {
+            channels = new Dictionary<int, Channel>();
+        }
+
         public Channel GetChannle(int chnId)
         {
-            return new Channel();
+            return channels[chnId];
         }
 
         /// <summary>

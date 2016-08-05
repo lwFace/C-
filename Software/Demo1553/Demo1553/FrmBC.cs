@@ -23,10 +23,6 @@ namespace Demo1553
         {
             InitializeComponent();
             BoundBC = bc;
-            /*For test*/
-            BoundMessage msg = new BoundMessage();
-            msg.Name = "test";
-            BoundBC.MsgList.Add(msg);
             this.gridControl1.DataSource = BoundBC.MsgList;
         }
 

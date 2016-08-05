@@ -13,15 +13,26 @@ namespace Demo1553
 {
     public partial class FrmRT : DevExpress.XtraEditors.XtraForm
     {
-        public BindingList<BoundRTMessage> MsgList = new BindingList<BoundRTMessage>();
+        RT BoundRT;
+        
         public FrmRT()
         {
             InitializeComponent();
         }
-
+        public FrmRT(RT rt)
+        {
+            InitializeComponent();
+            BoundRT = rt;
+            this.gridControl1.DataSource = BoundRT.RTMsgList;
+        }
         private void FrmRT_Load(object sender, EventArgs e)
         {
-            this.gridControl1.DataSource = MsgList;
+           bool []rtStatus = BoundRT.GetRTStatus();
+           for (int i = 0; i < rtStatus.Length; i++)
+           {
+               checkButtonRTr[i].Checked = !rtStatus[i];
+           }
+           // this.gridControl1.DataSource = RTMsgList;
             this.gridView1.Columns["UUID"].Visible = false;
             this.gridView1.Columns["Payload"].Visible = false;
 
@@ -29,5 +40,30 @@ namespace Demo1553
             DynamicByteProvider provider = new DynamicByteProvider(array);
             this.hexBoxBcPayload.ByteProvider = provider;
         }
+
+
+        private void checkButtonRTr_Click(object sender, EventArgs e)
+        {
+            CheckButton chbtn = sender as CheckButton;
+            int rtAddr = int.Parse(chbtn.Text);
+            BoundRT.SetRTStatus(rtAddr, !chbtn.Checked);
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            bool isChecked = false;
+            SimpleButton cBtn = sender as SimpleButton;
+            if (cBtn.Text.Equals("全选"))
+            {
+                isChecked = true;
+            }
+            
+            for (int rtAddr = 1; rtAddr < 31; rtAddr++)
+            {
+                BoundRT.SetRTStatus(rtAddr, isChecked);
+                checkButtonRTr[rtAddr-1].Checked = !isChecked;
+            }           
+        }
+
     }
 }

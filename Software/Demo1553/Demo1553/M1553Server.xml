@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <init>
 	<card Id="0" Name="1553_0">
 		<channel Flag="1" Id="1" >
-			<parameter Id="4" Name="Terminal" Value="BC;BM;RT;"/>
-			<parameter Id="5" Name="BusType" Value="A"/>
-			<parameter Id="2" Name="PeriodBlockNum" Value="2"/>
-			<parameter Id="3" Name="AperiodBlockNum" Value="1"/>
+			<parameter Id="1" Name="Terminal" Value="BC;RT;BM;"/>
+			<parameter Id="2" Name="BusType" Value="A"/>
 			<BC Flag="1">
+        <parameter Id="3" Name="PeriodBlockNum" Value="2"/>
+        <parameter Id="4" Name="AperiodBlockNum" Value="1"/>
 				<busTable>
 					<item MsgId="10001" BCPeriod="10" DstAddress="6" DstSubAddress="1"
 						 MsgType="BC-RT" SrcAddress="255" SrcSubAddress="255"  WordSize="26"/>

@@ -25,9 +25,22 @@ namespace Demo1553
             return nodeType;
         }
 
-        public void SetNodeType(NodeType type)
+        public void SetNodeType(string nodeName)
         {
-            nodeType = type;
+            switch(nodeName)
+            {
+                case "BC":
+                    nodeType = NodeType.BC;
+                    break;
+                case "RT":
+                    nodeType = NodeType.RT;
+                    break;
+                case "BM":
+                    nodeType = NodeType.BM;
+                    break;
+                default:
+                    throw new Exception("错误的节点类型：" + nodeName);
+             }
         }
 
         //public void AddMsg(BoundMessage msg)

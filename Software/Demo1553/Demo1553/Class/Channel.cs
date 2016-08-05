@@ -13,16 +13,23 @@ namespace Demo1553
         Dictionary<int, Node> nodes;
 
         public int Id;
-        public string Name; 
+        public string Name;
+
+
+        public Channel()
+        {
+            nodes = new Dictionary<int, Node>();
+        }
 
         public BC GetBC()
         {
             /*查找Dictionary，获取到BC对象*/
-            return new BC();
+            return (BC)nodes[(int)NodeType.BC];
         }
         public RT GetRT()
         {
-            return new RT();
+          //  return new RT();
+            return (RT)nodes[(int)NodeType.RT];
         }
         public BM GetBM()
         {

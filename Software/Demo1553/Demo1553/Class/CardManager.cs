@@ -9,15 +9,15 @@ namespace Demo1553
     public static class CardManager
     {
         /*定义card的Dictionary*/
-        static Dictionary<int, Card> cards;
+        static Dictionary<int, Card> cards = new Dictionary<int, Card>();
         public static HR_CALLBACK m_callback;
+       
         /// <summary>
         /// 解析xml配置文件，获取板卡信息，建立板卡对象
         /// </summary>
         /// <param name="xmlInfo"></param>
         public static void Register(string xmlInfo)
-        {
-            cards = new Dictionary<int, Card>();
+        {           
             m_callback = new HR_CALLBACK(intFunc);
             Interface1553.addListener(m_callback);
         }

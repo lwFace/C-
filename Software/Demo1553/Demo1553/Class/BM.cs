@@ -5,7 +5,11 @@ using System.Text;
 
 namespace Demo1553.Class
 {
-    public class BM
+    public class BM:Node
     {
+        public BM()
+        {
+            this.Type = NodeType.BM;
+        }
     }
 }

@@ -11,6 +11,7 @@ using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraBars.Docking2010.Views.Tabbed;
 using DevExpress.XtraTreeList.Nodes;
 using System.Xml;
+using Demo1553.Class;
 
 namespace Demo1553
 {
@@ -46,13 +47,7 @@ namespace Demo1553
             treeListResource.ExpandAll();
             treeListResource.Columns["Tag"].Visible = false;
 
-            this.outputControl1.LogInfo("板卡打开成功！");
-            //Interface1553.init("Hello");
-            //CardManager.Init();
-
-           // string error = Interface1553.getLastErr();
-           // System.Console.WriteLine(error);
-           
+            //checkButton1.Checked = true;
         }
         /// <summary>
         /// 载入xml文件，获取板卡资源信息，更新到左侧边栏
@@ -86,6 +81,7 @@ namespace Demo1553
                     rescard.Name = cardName;
                     rescard.ID = CardNodeBaseId++;
                     rescard.ParentID = resPrj.ID;
+                    rescard.Tag = rescard;
                     listResource.Add(rescard);
                     Card card = new Card();
                     card.Id = cardId;
@@ -102,6 +98,7 @@ namespace Demo1553
                         reschannel.Name = channelName;
                         reschannel.ID = ChannelNodeBaseId++;
                         reschannel.ParentID = rescard.ID;
+                        reschannel.Tag = reschannel;
                         listResource.Add(reschannel);
                         Channel channel = new Channel();
                         channel.Name=channelName;
@@ -116,6 +113,8 @@ namespace Demo1553
                             resnode.Name = nodeName;
                             resnode.ParentID = reschannel.ID;
                             resnode.ID = NodeNodeBaseId++;
+                            ((BoundResourceNode)resnode).SetNodeType(resnode.Name);
+                            resnode.Tag = resnode;
                             listResource.Add(resnode);
 
                             Node node;
@@ -123,6 +122,12 @@ namespace Demo1553
                             {
                                 case "BC":
                                     node = new BC();                                    
+                                    break;
+                                case "RT":
+                                    node = new RT();
+                                    break;
+                                case "BM":
+                                    node = new BM();
                                     break;
                                 default:
                                     throw new Exception("错误的节点类型："+nodeName);
@@ -200,13 +205,16 @@ namespace Demo1553
             }
             /*获取cardManager下的BC对象*/
             BC bc = CardManager.GetCard(0).GetChannle(0).GetBC();
+            RT rt = CardManager.GetCard(0).GetChannle(0).GetRT();
+           // BC bc = new BC();
+            //RT rt = new RT();
             switch (type)
             {
                 case NodeType.BC:
                     newFrm = new FrmBC(bc);
                     break;
                 case NodeType.RT:
-                    newFrm = new FrmRT();
+                    newFrm = new FrmRT(rt);
                     break;
                 case NodeType.BM:
                     newFrm = new XtraForm();

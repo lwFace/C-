@@ -13,9 +13,7 @@ namespace Demo1553
         public BC()
         {
             this.Type = NodeType.BC;
-            MsgList = new BindingList<BoundMessage>();
-
-           
+            MsgList = new BindingList<BoundMessage>();           
         }
     }
 }
