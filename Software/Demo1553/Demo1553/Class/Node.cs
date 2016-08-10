@@ -10,6 +10,12 @@ namespace Demo1553
     {
         public NodeType Type;
         public string Name;
+        public bool IsEnable;
+
+        public Node()
+        {
+            IsEnable = false;
+        }
 
         /*定义MsgList，用于存储来自板卡的消息*/
 

@@ -13,7 +13,7 @@ namespace Demo1553
 {
     public partial class FrmRT : DevExpress.XtraEditors.XtraForm
     {
-        RT BoundRT;
+        RT _BoundRT;
         
         public FrmRT()
         {
@@ -22,17 +22,17 @@ namespace Demo1553
         public FrmRT(RT rt)
         {
             InitializeComponent();
-            BoundRT = rt;
-            this.gridControl1.DataSource = BoundRT.RTMsgList;
+            _BoundRT = rt;
+            this.gridControl1.DataSource = _BoundRT.RTMsgList;
         }
         private void FrmRT_Load(object sender, EventArgs e)
         {
-           bool []rtStatus = BoundRT.GetRTStatus();
+           bool []rtStatus = _BoundRT.GetRTStatus();
            for (int i = 0; i < rtStatus.Length; i++)
            {
                checkButtonRTr[i].Checked = !rtStatus[i];
            }
-           // this.gridControl1.DataSource = RTMsgList;
+            // this.gridControl1.DataSource = RTMsgList;
             this.gridView1.Columns["UUID"].Visible = false;
             this.gridView1.Columns["Payload"].Visible = false;
 
@@ -46,7 +46,7 @@ namespace Demo1553
         {
             CheckButton chbtn = sender as CheckButton;
             int rtAddr = int.Parse(chbtn.Text);
-            BoundRT.SetRTStatus(rtAddr, !chbtn.Checked);
+            _BoundRT.SetRTStatus(rtAddr, !chbtn.Checked);
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -57,10 +57,9 @@ namespace Demo1553
             {
                 isChecked = true;
             }
-            
             for (int rtAddr = 1; rtAddr < 31; rtAddr++)
             {
-                BoundRT.SetRTStatus(rtAddr, isChecked);
+                _BoundRT.SetRTStatus(rtAddr, isChecked);
                 checkButtonRTr[rtAddr-1].Checked = !isChecked;
             }           
         }

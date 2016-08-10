@@ -14,10 +14,11 @@ namespace Demo1553
 
         public int Id;
         public string Name;
-
+        public bool IsEnable;
 
         public Channel()
         {
+            IsEnable = false;
             nodes = new Dictionary<int, Node>();
         }
 
@@ -33,7 +34,7 @@ namespace Demo1553
         }
         public BM GetBM()
         {
-            return new BM();
+            return (BM)nodes[(int)NodeType.BM];
         }
 
         /// <summary>

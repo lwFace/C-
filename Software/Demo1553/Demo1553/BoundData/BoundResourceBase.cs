@@ -12,6 +12,10 @@ namespace Demo1553
         public int ParentID { get; set; }
         public string Name { get; set; }
         public object Tag { get; set; }
+        /// <summary>
+        /// 驱动所用ID
+        /// </summary>
+        private int _resourceId;
         private ResourceType resType;
 
         /// <summary>
@@ -26,6 +30,15 @@ namespace Demo1553
         public void SetResourceType(ResourceType type)
         {
              resType = type;
+        }
+
+        public int GetResourceId()
+        {
+            return _resourceId;
+        }
+        public void SetResourceId(int id)
+        {
+            _resourceId = id ;
         }
     }
 }

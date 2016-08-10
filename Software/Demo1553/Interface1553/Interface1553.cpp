@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <time.h>
 
-DWORD WINAPI recvThread(void* pParam);
+
 char gErrMsg[2028]="No error.";
 HR_CALLBACK gListener=NULL;
 bool gRunFlag = false;
@@ -49,10 +49,6 @@ DLL_EXPORT int close(char* confStr)
 
 DLL_EXPORT char* getLastErr()
 {
-	CALLBACK_1553 info;
-	info.cmd1 = 100;
-	info.payload[0] = 12;
-	gListener((void*)&info,NULL);
 	return gErrMsg;
 }
 

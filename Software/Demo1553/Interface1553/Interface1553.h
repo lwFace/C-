@@ -26,7 +26,7 @@ typedef struct _callback_1553
 	char payload[64];/*有效数据*/
 }CALLBACK_1553;
 
-typedef  void (*HR_CALLBACK)(void* pCallbackInfo, void* pParam);
+typedef   void  (__stdcall *HR_CALLBACK)(void* pCallbackInfo, void* pParam);
 
 /************************************************************/
 /* 函数名称：	open
@@ -97,5 +97,7 @@ DLL_EXPORT int close(char* confStr);
  * 返 回 值：	上次的错误信息描述
 /************************************************************/
 DLL_EXPORT char* getLastErr();
+
+DWORD WINAPI recvThread(void* pParam);
 };
 #endif

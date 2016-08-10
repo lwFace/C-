@@ -10,12 +10,14 @@ namespace Demo1553
         public int Id;
         public string Name;
         public int Num;
+        public bool IsEnable;
 
         /*定义通道的Dictionary*/
-        Dictionary<int, Channel> channels;
+        public Dictionary<int, Channel> channels;
 
         public Card()
         {
+            IsEnable = false;
             channels = new Dictionary<int, Channel>();
         }
 

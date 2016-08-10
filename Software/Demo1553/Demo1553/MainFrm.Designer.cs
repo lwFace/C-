@@ -38,7 +38,7 @@
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnInit = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnStart = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -99,7 +99,7 @@
             this.barButtonItem5,
             this.barButtonItem6,
             this.barBtnInit,
-            this.barButtonItem8});
+            this.barBtnStart});
             this.barManager1.MainMenu = this.bar1;
             this.barManager1.MaxItemId = 16;
             this.barManager1.StatusBar = this.bar3;
@@ -145,7 +145,7 @@
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnInit),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnStart),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
             this.bar2.OptionsBar.DrawDragBorder = false;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -168,13 +168,14 @@
             this.barBtnInit.Name = "barBtnInit";
             this.barBtnInit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnInit_ItemClick);
             // 
-            // barButtonItem8
+            // barBtnStart
             // 
-            this.barButtonItem8.Caption = "barButtonItem8";
-            this.barButtonItem8.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.Glyph")));
-            this.barButtonItem8.Id = 15;
-            this.barButtonItem8.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.LargeGlyph")));
-            this.barButtonItem8.Name = "barButtonItem8";
+            this.barBtnStart.Caption = "开始";
+            this.barBtnStart.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnStart.Glyph")));
+            this.barBtnStart.Id = 15;
+            this.barBtnStart.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnStart.LargeGlyph")));
+            this.barBtnStart.Name = "barBtnStart";
+            this.barBtnStart.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnStart_ItemClick);
             // 
             // barButtonItem6
             // 
@@ -274,6 +275,7 @@
             this.treeListResource.OptionsView.ShowIndicator = false;
             this.treeListResource.Size = new System.Drawing.Size(192, 406);
             this.treeListResource.TabIndex = 0;
+            this.treeListResource.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeListResource_AfterCheckNode);
             this.treeListResource.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeListResource_MouseDoubleClick);
             // 
             // dockPanelOutPut
@@ -411,7 +413,7 @@
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barBtnInit;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem barBtnStart;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;

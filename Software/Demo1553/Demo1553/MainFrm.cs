@@ -64,6 +64,7 @@ namespace Demo1553
                 BoundResourceBase resPrj = new BoundResourceProj();
                 resPrj.ID = 0;
                 resPrj.Name = "Project";
+                resPrj.Tag = resPrj;
                 listResource.Add(resPrj);
 
                 int CardNodeBaseId = 1;
@@ -81,6 +82,7 @@ namespace Demo1553
                     rescard.Name = cardName;
                     rescard.ID = CardNodeBaseId++;
                     rescard.ParentID = resPrj.ID;
+                    rescard.SetResourceId(cardId);
                     rescard.Tag = rescard;
                     listResource.Add(rescard);
                     Card card = new Card();
@@ -98,7 +100,9 @@ namespace Demo1553
                         reschannel.Name = channelName;
                         reschannel.ID = ChannelNodeBaseId++;
                         reschannel.ParentID = rescard.ID;
+                        reschannel.SetResourceId(channelId);
                         reschannel.Tag = reschannel;
+                        
                         listResource.Add(reschannel);
                         Channel channel = new Channel();
                         channel.Name=channelName;
@@ -144,7 +148,7 @@ namespace Demo1553
             }
             catch (Exception ex)
             {
-                
+                LogHelper.WriteLog(typeof(MainFrm), ex);
                 throw new Exception("获取资源信息失败！请检查资源配置文件。");
             }
         }
@@ -167,7 +171,7 @@ namespace Demo1553
                 case ResourceType.Node:
                     {
                         BoundResourceNode node = (BoundResourceNode)res;
-                        CreateFrm(nodeName, node.GetNodeType());                       
+                        CreateFrm(nodeName, node.GetNodeType());
                     }
                     break;
                 default:
@@ -192,6 +196,7 @@ namespace Demo1553
             }
             return caption;
         }
+
         private void CreateFrm(string caption,NodeType type)
         {
             XtraForm newFrm;
@@ -204,17 +209,19 @@ namespace Demo1553
                 }
             }
             /*获取cardManager下的BC对象*/
-            BC bc = CardManager.GetCard(0).GetChannle(0).GetBC();
-            RT rt = CardManager.GetCard(0).GetChannle(0).GetRT();
-           // BC bc = new BC();
-            //RT rt = new RT();
+            TreeListNode ChannelNode = treeListResource.FocusedNode.ParentNode;
+            TreeListNode CardNode = ChannelNode.ParentNode;
+            BoundResourceChannel ChnRes = ChannelNode["Tag"] as BoundResourceChannel;
+            BoundResourceCard CardRes = CardNode["Tag"] as BoundResourceCard;
+            int ChnId = ChnRes.GetResourceId();
+            int CardId = CardRes.GetResourceId();
             switch (type)
             {
                 case NodeType.BC:
-                    newFrm = new FrmBC(bc);
+                    newFrm = new FrmBC(CardManager.GetCard(CardId).GetChannle(ChnId).GetBC());
                     break;
                 case NodeType.RT:
-                    newFrm = new FrmRT(rt);
+                    newFrm = new FrmRT(CardManager.GetCard(CardId).GetChannle(ChnId).GetRT());
                     break;
                 case NodeType.BM:
                     newFrm = new XtraForm();
@@ -231,8 +238,55 @@ namespace Demo1553
 
         private void barBtnInit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            CardManager.Register("");
             CardManager.Init();
         }
+
+        private void treeListResource_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        {
+            BoundResourceBase res = e.Node["Tag"] as BoundResourceBase;
+            switch (res.GetResourceType())
+            {
+                case ResourceType.Card:
+                    CardManager.GetCard(res.GetResourceId()).IsEnable = e.Node.Checked;
+                    break;
+                case ResourceType.Channel:
+                    {
+                        BoundResourceBase resCard = e.Node.ParentNode["Tag"] as BoundResourceBase;
+                        CardManager.GetCard(resCard.GetResourceId()).GetChannle(res.GetResourceId()).IsEnable = e.Node.Checked;
+                    }
+                    break;
+                case ResourceType.Node:
+                    {
+                        BoundResourceNode node = (BoundResourceNode)res;
+                        BoundResourceBase resChn = e.Node.ParentNode["Tag"] as BoundResourceBase;
+                        BoundResourceBase resCard = e.Node.ParentNode.ParentNode["Tag"] as BoundResourceBase;
+                        switch (node.GetNodeType())
+                        {
+                            case NodeType.BC:
+                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetBC().IsEnable = e.Node.Checked;
+                                break;
+                            case NodeType.RT:
+                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetRT().IsEnable = e.Node.Checked;
+                                break;
+                            case NodeType.BM:
+                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetBM().IsEnable = e.Node.Checked;
+                                break;
+                           default:
+                                break;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void barBtnStart_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CardManager.Start();
+        }
+       
     }
 
 }
