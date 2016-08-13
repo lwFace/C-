@@ -10,7 +10,8 @@ namespace Demo1553
     public struct CALLBACK_1553
     {
         public int msgId;
-        public int src;/*物理通道信息，具体含义如下
+        public int src ;
+        /*物理通道信息，具体含义如下
 			  0-7：节点ID，BC为0，RT为1，BM为2 
 			  8-15：通道ID 
 			  16-23：板卡ID	*/

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
             this.btnDisselectAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPageConfig = new DevExpress.XtraTab.XtraTabPage();
@@ -69,6 +68,8 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageMonitor = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControlPayload = new DevExpress.XtraEditors.GroupControl();
             this.hexBoxBcPayload = new Be.Windows.Forms.HexBox();
             this.xtraTabPageConfig.SuspendLayout();
@@ -81,6 +82,9 @@
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPageMonitor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).BeginInit();
             this.groupControlPayload.SuspendLayout();
             this.SuspendLayout();
@@ -141,6 +145,7 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             // 
             // groupBoxRTSetting1
             // 
@@ -602,9 +607,28 @@
             // 
             // xtraTabPageMonitor
             // 
+            this.xtraTabPageMonitor.Controls.Add(this.gridControl2);
             this.xtraTabPageMonitor.Name = "xtraTabPageMonitor";
             this.xtraTabPageMonitor.Size = new System.Drawing.Size(948, 231);
             this.xtraTabPageMonitor.Text = "Monitor";
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(948, 231);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView2_InitNewRow);
             // 
             // groupControlPayload
             // 
@@ -653,42 +677,13 @@
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPageMonitor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).EndInit();
             this.groupControlPayload.ResumeLayout(false);
             this.ResumeLayout(false);
 
-
-            checkButtonRTr = new DevExpress.XtraEditors.CheckButton[30];
-            checkButtonRTr[0] = this.checkButton1;
-            checkButtonRTr[1] = this.checkButton2;
-            checkButtonRTr[2] = this.checkButton3;
-            checkButtonRTr[3] = this.checkButton4;
-            checkButtonRTr[4] = this.checkButton5;
-            checkButtonRTr[5] = this.checkButton6;
-            checkButtonRTr[6] = this.checkButton7;
-            checkButtonRTr[7] = this.checkButton8;
-            checkButtonRTr[8] = this.checkButton9;
-            checkButtonRTr[9] = this.checkButton10;
-            checkButtonRTr[10] = this.checkButton11;
-            checkButtonRTr[11] = this.checkButton12;
-            checkButtonRTr[12] = this.checkButton13;
-            checkButtonRTr[13] = this.checkButton14;
-            checkButtonRTr[14] = this.checkButton15;
-            checkButtonRTr[15] = this.checkButton16;
-            checkButtonRTr[16] = this.checkButton17;
-            checkButtonRTr[17] = this.checkButton18;
-            checkButtonRTr[18] = this.checkButton19;
-            checkButtonRTr[19] = this.checkButton20;
-            checkButtonRTr[20] = this.checkButton21;
-            checkButtonRTr[21] = this.checkButton22;
-            checkButtonRTr[22] = this.checkButton23;
-            checkButtonRTr[23] = this.checkButton24;
-            checkButtonRTr[24] = this.checkButton25;
-            checkButtonRTr[25] = this.checkButton26;
-            checkButtonRTr[26] = this.checkButton27;
-            checkButtonRTr[27] = this.checkButton28;
-            checkButtonRTr[28] = this.checkButton29;
-            checkButtonRTr[29] = this.checkButton30;
         }
 
         #endregion
@@ -767,5 +762,7 @@
         private DevExpress.XtraEditors.CheckButton checkButton4;
         private DevExpress.XtraEditors.CheckButton checkButton3;
         private DevExpress.XtraEditors.CheckButton checkButton2;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
     }
 }

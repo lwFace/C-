@@ -13,9 +13,10 @@ namespace Demo1553
         [STAThread]
         static void Main()
         {
+            DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrm());
+            Application.Run( new MainFrm());
         }
     }
 }

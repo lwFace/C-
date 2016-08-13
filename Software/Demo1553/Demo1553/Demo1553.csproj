@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoundData\BoundRecvMessage.cs" />
     <Compile Include="Class\BC.cs" />
     <Compile Include="BoundData\BoundMessage.cs" />
     <Compile Include="BoundData\BoundResourceBase.cs" />
@@ -78,13 +79,26 @@
     <Compile Include="Class\CardManager.cs" />
     <Compile Include="Class\Channel.cs" />
     <Compile Include="Class\Interface1553.cs" />
+    <Compile Include="Class\NetIdGenerator.cs" />
     <Compile Include="Class\Node.cs" />
     <Compile Include="Class\RT.cs" />
+    <Compile Include="FrmAddMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddMsg.Designer.cs">
+      <DependentUpon>FrmAddMsg.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBC.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBC.Designer.cs">
       <DependentUpon>FrmBC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBM.designer.cs">
+      <DependentUpon>FrmBM.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRT.cs">
       <SubType>Form</SubType>
@@ -101,8 +115,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddMsg.resx">
+      <DependentUpon>FrmAddMsg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBC.resx">
       <DependentUpon>FrmBC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBM.resx">
+      <DependentUpon>FrmBM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRT.resx">
       <DependentUpon>FrmRT.cs</DependentUpon>

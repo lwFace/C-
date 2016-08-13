@@ -85,5 +85,6 @@ DWORD WINAPI recvThread(void* pParam)
 			Sleep(100);
 		}
 	}
+	
 	return 0;
 }

@@ -20,7 +20,6 @@ namespace Demo1553
 
         public void SetRTStatus(int rtAddr, bool bEnable)
         {
-
             _rtStatus[rtAddr-1] = bEnable;
         }
 

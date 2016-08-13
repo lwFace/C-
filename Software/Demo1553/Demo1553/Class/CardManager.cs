@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Xml;
+using Demo1553.BoundData;
+using Demo1553.Class;
 
 namespace Demo1553
 {
     public static class CardManager
     {
         /*定义card的Dictionary*/
-        static Dictionary<int, Card> cards = new Dictionary<int, Card>();
+        public static Dictionary<int, Card> cards = new Dictionary<int, Card>();
         public static HR_CALLBACK m_callback;
        
         /// <summary>
@@ -26,6 +28,7 @@ namespace Demo1553
             Interface1553.addListener(m_callback);
         }
 
+        
         /// <summary>
         /// 中断处理函数，获取数据，更新到Node的消息列表
         /// </summary>
@@ -35,6 +38,47 @@ namespace Demo1553
         {
             CALLBACK_1553 pInfo = new CALLBACK_1553();
             pInfo = (CALLBACK_1553)Marshal.PtrToStructure(pCallbackInfo, typeof(CALLBACK_1553));
+            //GetNodeBySrc(pInfo.src).moniMsgList.Add(new BoundRecvMessage(pInfo));
+            if (CardManager.GetNodeBySrc(pInfo.src).Type == NodeType.BC)
+            {
+                CardManager.GetCard(cardId(pInfo.src)).GetChannle(chnId(pInfo.src)).GetBC().moniMsgList.Add(new BoundRecvMessage(pInfo));
+            }
+            if (CardManager.GetNodeBySrc(pInfo.src).Type == NodeType.RT)
+            {
+                CardManager.GetCard(cardId(pInfo.src)).GetChannle(chnId(pInfo.src)).GetRT().moniMsgList.Add(new BoundRecvMessage(pInfo));
+            }
+            if (CardManager.GetNodeBySrc(pInfo.src).Type == NodeType.BM)
+            {
+                CardManager.GetCard(cardId(pInfo.src)).GetChannle(chnId(pInfo.src)).GetBM().moniMsgList.Add(new BoundRecvMessage(pInfo));
+            }
+        }
+        static private Node GetNodeBySrc(int src)
+        {
+            int nodeID = src & 0xff;
+            int chnId = (src >> 8) & 0xff;
+            int cardId = (src >> 16) & 0xff;
+            return cards[cardId].channels[chnId].nodes[nodeID];
+        }
+        //static private Channel GetChannelBySrc(int src)
+        //{
+        //    int chnId = (src >> 8) & 0xff;
+        //    int cardId = (src >> 16) & 0xff;
+        //    return cards[cardId].channels[chnId];
+        //}
+        //static private Card GetCardBySrc(int src)
+        //{
+        //    int cardId = (src >> 16) & 0xff;
+        //    return cards[cardId];
+        //}
+        static private int chnId(int src)
+        {
+            int chnId = (src >> 8) & 0xff;
+            return chnId;
+        }
+        static private int cardId(int src)
+        {
+            int cardId = (src >> 16) & 0xff;
+            return cardId;
         }
 
         /// <summary>
@@ -125,14 +169,14 @@ namespace Demo1553
                                  foreach (var msg in channel.Value.GetBC().MsgList)
                                  {
                                      XmlElement elementitem = xmlDoc.CreateElement("item");
-                                     elementitem.SetAttribute("MsgId", msg.UUID);
+                                     elementitem.SetAttribute("MsgId", msg.NetId.ToString());
                                      elementitem.SetAttribute("BCPeriod", msg.Period.ToString());
                                      elementitem.SetAttribute("DstAddress", msg.DstRTAddr.ToString());
                                      elementitem.SetAttribute("DstSubAddress", msg.DstSubRTAddr.ToString());
                                      elementitem.SetAttribute("MsgType", msg.MsgType.ToString());
                                      elementitem.SetAttribute("SrcAddress", msg.SrcRTAddr.ToString());
                                      elementitem.SetAttribute("SrcSubAddress", msg.SrcSubRTAddr.ToString());
-                                     elementitem.SetAttribute("WordSize", msg.Length.ToString());
+                                     elementitem.SetAttribute("WordSize", msg.WordSize.ToString());
                                      elementbusTab.AppendChild(elementitem);
                                  }
                              }
@@ -161,7 +205,7 @@ namespace Demo1553
                                  foreach (var RTmsg in channel.Value.GetRT().RTMsgList)
                                  {
                                      XmlElement elementitem = xmlDoc.CreateElement("item");
-                                     elementitem.SetAttribute("MsgId", RTmsg.UUID);
+                                     elementitem.SetAttribute("MsgId", RTmsg.NetId.ToString());
                                      elementitem.SetAttribute("RTAddr", RTmsg.RTAddr.ToString());
                                      elementitem.SetAttribute("SubRTAddr", RTmsg.SubRTAddr.ToString());
                                      elementbusTab.AppendChild(elementitem);
@@ -184,12 +228,27 @@ namespace Demo1553
             //Interface1553.init(xmlConf);
             return 0;
         }
-#endregion
+        #endregion
 
-        #region 开始
+        #region 启停
+        /// <summary>
+        /// 开始按钮调用该方法
+        /// </summary>
         public static void Start()
         {
             Interface1553.start();
+        }
+
+        public static void Stop()
+        {
+            Interface1553.stop();
+        }
+        #endregion
+
+        #region 数据发送
+        public static void WriteMsg(int msgId, System.IntPtr pPayload, int nLen)
+        {
+            Interface1553.writeMsg(msgId, pPayload, nLen);
         }
         #endregion
         /// <summary>

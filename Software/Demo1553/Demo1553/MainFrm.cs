@@ -224,7 +224,7 @@ namespace Demo1553
                     newFrm = new FrmRT(CardManager.GetCard(CardId).GetChannle(ChnId).GetRT());
                     break;
                 case NodeType.BM:
-                    newFrm = new XtraForm();
+                    newFrm = new FrmBM(CardManager.GetCard(CardId).GetChannle(ChnId).GetBM());
                     break;
                 default:
                     newFrm = new XtraForm();
@@ -285,6 +285,11 @@ namespace Demo1553
         private void barBtnStart_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CardManager.Start();
+        }
+
+        private void btnStop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CardManager.Stop();
         }
        
     }

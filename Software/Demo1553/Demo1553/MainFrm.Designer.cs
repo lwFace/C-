@@ -39,7 +39,7 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnInit = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnStart = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnStop = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -97,7 +97,7 @@
             this.barSubItem5,
             this.barSubItem6,
             this.barButtonItem5,
-            this.barButtonItem6,
+            this.btnStop,
             this.barBtnInit,
             this.barBtnStart});
             this.barManager1.MainMenu = this.bar1;
@@ -146,7 +146,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnInit),
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnStart),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnStop)});
             this.bar2.OptionsBar.DrawDragBorder = false;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Custom 3";
@@ -177,13 +177,14 @@
             this.barBtnStart.Name = "barBtnStart";
             this.barBtnStart.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnStart_ItemClick);
             // 
-            // barButtonItem6
+            // btnStop
             // 
-            this.barButtonItem6.Caption = "barButtonItem6";
-            this.barButtonItem6.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.Glyph")));
-            this.barButtonItem6.Id = 13;
-            this.barButtonItem6.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.LargeGlyph")));
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.btnStop.Caption = "停止";
+            this.btnStop.Glyph = ((System.Drawing.Image)(resources.GetObject("btnStop.Glyph")));
+            this.btnStop.Id = 13;
+            this.btnStop.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnStop.LargeGlyph")));
+            this.btnStop.Name = "btnStop";
+            this.btnStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStop_ItemClick);
             // 
             // bar3
             // 
@@ -414,7 +415,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barBtnInit;
         private DevExpress.XtraBars.BarButtonItem barBtnStart;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarButtonItem btnStop;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;

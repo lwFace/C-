@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Demo1553.Class;
 
 namespace Demo1553
 {
     public class BoundRTMessage
     {
-        public string UUID { get; set; }
+        public int NetId { get; set; }
         public string Name { get; set; }
         private byte rtAddr;
         private byte subRTAddr;
@@ -15,7 +16,7 @@ namespace Demo1553
 
         public BoundRTMessage()
         {
-            UUID = Guid.NewGuid().ToString();
+            NetId = NetIdGenerator.GenerateNetId();
             Payload = new ushort[32];
         }
         public byte RTAddr { get { return rtAddr; } set { rtAddr = value; } }

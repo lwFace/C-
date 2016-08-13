@@ -10,7 +10,7 @@ namespace Demo1553
     {
         //NodeType { BC=0,RT=1,BM=2};
         /*定义Node的Dictionary*/
-        Dictionary<int, Node> nodes;
+        public Dictionary<int, Node> nodes;
 
         public int Id;
         public string Name;

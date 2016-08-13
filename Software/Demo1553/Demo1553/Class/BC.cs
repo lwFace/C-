@@ -11,10 +11,11 @@ namespace Demo1553
         public int periodNum;
         public int aperiodNum;
     }
-
+   
     public class BC:Node
     {
-        public BindingList<BoundMessage> MsgList;
+        
+        public BindingList<BoundMessage> MsgList; 
         private BlockNum _blockNum;
         /*BC配置信息*/
         public BC()
