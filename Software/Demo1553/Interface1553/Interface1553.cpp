@@ -56,6 +56,7 @@ DLL_EXPORT char* getLastErr()
 DWORD WINAPI recvThread(void* pParam)
 {
 	CALLBACK_1553 msg;
+	memset(&msg,0,sizeof(CALLBACK_1553));
 	for (int i=0;i<64;i++)
 	{
 		msg.payload[i] = i;
@@ -69,22 +70,20 @@ DWORD WINAPI recvThread(void* pParam)
 		}		
 		for (int i=0;i<31;i++)
 		{		
-			memset(&msg,0,sizeof(CALLBACK_1553));
 			msg.cmd1=0x840;
 			msg.srcAddr = 1;
 			msg.subSrcAddr = 1;
 			msg.dstAddr = 255;
 			msg.subDstAddr = 255;
-			msg.length = 2*(i+1);	
+			msg.length = i+1;	
 			msg.src = 0;//BC
 			gListener(&msg,NULL);
 			msg.src = 1;//RT
 			gListener(&msg,NULL);
 			msg.src = 2;//BM
 			gListener(&msg,NULL);
-			Sleep(100);
+			Sleep(1000);
 		}
 	}
-	
 	return 0;
 }

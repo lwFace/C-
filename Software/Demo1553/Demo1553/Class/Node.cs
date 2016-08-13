@@ -12,11 +12,11 @@ namespace Demo1553
         public NodeType Type;
         public string Name;
         public bool IsEnable;
-        public BindingList<BoundRecvMessage> moniMsgList;
+        public BindingList<BoundRecvMessage> MonitorMsgList;
         public Node()
         {
             IsEnable = false;
-            moniMsgList = new BindingList<BoundRecvMessage>();
+            MonitorMsgList = new BindingList<BoundRecvMessage>();
         }
 
         /*定义MsgList，用于存储来自板卡的消息*/

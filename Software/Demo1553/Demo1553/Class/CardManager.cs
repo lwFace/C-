@@ -41,15 +41,19 @@ namespace Demo1553
             //GetNodeBySrc(pInfo.src).moniMsgList.Add(new BoundRecvMessage(pInfo));
             if (CardManager.GetNodeBySrc(pInfo.src).Type == NodeType.BC)
             {
-                CardManager.GetCard(cardId(pInfo.src)).GetChannle(chnId(pInfo.src)).GetBC().moniMsgList.Add(new BoundRecvMessage(pInfo));
+                BC bc = CardManager.GetCard(GetCardIdBySrc(pInfo.src)).GetChannle(GetChnIdBySrc(pInfo.src)).GetBC();
+                if (bc.IsRunning)
+                {
+                    bc.MonitorMsgList.Add(new BoundRecvMessage(pInfo));
+                }                
             }
             if (CardManager.GetNodeBySrc(pInfo.src).Type == NodeType.RT)
             {
-                CardManager.GetCard(cardId(pInfo.src)).GetChannle(chnId(pInfo.src)).GetRT().moniMsgList.Add(new BoundRecvMessage(pInfo));
+                CardManager.GetCard(GetCardIdBySrc(pInfo.src)).GetChannle(GetChnIdBySrc(pInfo.src)).GetRT().MonitorMsgList.Add(new BoundRecvMessage(pInfo));
             }
             if (CardManager.GetNodeBySrc(pInfo.src).Type == NodeType.BM)
             {
-                CardManager.GetCard(cardId(pInfo.src)).GetChannle(chnId(pInfo.src)).GetBM().moniMsgList.Add(new BoundRecvMessage(pInfo));
+                CardManager.GetCard(GetCardIdBySrc(pInfo.src)).GetChannle(GetChnIdBySrc(pInfo.src)).GetBM().MonitorMsgList.Add(new BoundRecvMessage(pInfo));
             }
         }
         static private Node GetNodeBySrc(int src)
@@ -59,23 +63,13 @@ namespace Demo1553
             int cardId = (src >> 16) & 0xff;
             return cards[cardId].channels[chnId].nodes[nodeID];
         }
-        //static private Channel GetChannelBySrc(int src)
-        //{
-        //    int chnId = (src >> 8) & 0xff;
-        //    int cardId = (src >> 16) & 0xff;
-        //    return cards[cardId].channels[chnId];
-        //}
-        //static private Card GetCardBySrc(int src)
-        //{
-        //    int cardId = (src >> 16) & 0xff;
-        //    return cards[cardId];
-        //}
-        static private int chnId(int src)
+
+        static private int GetChnIdBySrc(int src)
         {
             int chnId = (src >> 8) & 0xff;
             return chnId;
         }
-        static private int cardId(int src)
+        static private int GetCardIdBySrc(int src)
         {
             int cardId = (src >> 16) & 0xff;
             return cardId;
@@ -166,7 +160,7 @@ namespace Demo1553
 
                                  XmlElement elementbusTab = xmlDoc.CreateElement("busTable");
                                  elementBC.AppendChild(elementbusTab);
-                                 foreach (var msg in channel.Value.GetBC().MsgList)
+                                 foreach (var msg in channel.Value.GetBC().ScheduMsgList)
                                  {
                                      XmlElement elementitem = xmlDoc.CreateElement("item");
                                      elementitem.SetAttribute("MsgId", msg.NetId.ToString());

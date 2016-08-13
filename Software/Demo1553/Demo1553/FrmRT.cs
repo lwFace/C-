@@ -25,7 +25,7 @@ namespace Demo1553
             InitializeStatusBtn();
             _BoundRT = rt;
             this.gridControl1.DataSource = _BoundRT.RTMsgList;
-            this.gridControl2.DataSource = _BoundRT.moniMsgList;
+            this.gridControl2.DataSource = _BoundRT.MonitorMsgList;
             this.gridView2.OptionsBehavior.Editable = false;
             this.gridView2.OptionsBehavior.ReadOnly = true;
         }
@@ -111,7 +111,7 @@ namespace Demo1553
 
         private void gridView2_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            Console.Write(_BoundRT.moniMsgList);
+            Console.Write(_BoundRT.MonitorMsgList);
         }
 
     }

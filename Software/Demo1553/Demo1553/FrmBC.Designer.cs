@@ -121,6 +121,7 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPageConfig;
@@ -135,7 +136,7 @@
             this.xtraTabPageConfig.Controls.Add(this.gridControlConfig);
             this.xtraTabPageConfig.Name = "xtraTabPageConfig";
             this.xtraTabPageConfig.Size = new System.Drawing.Size(577, 241);
-            this.xtraTabPageConfig.Text = "Configurate";
+            this.xtraTabPageConfig.Text = "配置";
             // 
             // gridControlConfig
             // 
@@ -230,8 +231,8 @@
             // 
             this.xtraTabPageMonitor.Controls.Add(this.gridControlMonitor);
             this.xtraTabPageMonitor.Name = "xtraTabPageMonitor";
-            this.xtraTabPageMonitor.Size = new System.Drawing.Size(577, 207);
-            this.xtraTabPageMonitor.Text = "Monitor";
+            this.xtraTabPageMonitor.Size = new System.Drawing.Size(577, 241);
+            this.xtraTabPageMonitor.Text = "监控";
             // 
             // gridControlMonitor
             // 
@@ -239,7 +240,7 @@
             this.gridControlMonitor.Location = new System.Drawing.Point(0, 0);
             this.gridControlMonitor.MainView = this.gridViewMonitor;
             this.gridControlMonitor.Name = "gridControlMonitor";
-            this.gridControlMonitor.Size = new System.Drawing.Size(577, 207);
+            this.gridControlMonitor.Size = new System.Drawing.Size(577, 241);
             this.gridControlMonitor.TabIndex = 2;
             this.gridControlMonitor.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMonitor});
@@ -339,6 +340,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FrmBC";
             this.Text = "FrmBC";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmBC_FormClosing);
             this.Load += new System.EventHandler(this.FrmBC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).EndInit();
             this.groupControlPayload.ResumeLayout(false);

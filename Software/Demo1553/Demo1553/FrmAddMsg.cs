@@ -221,207 +221,7 @@ namespace Demo1553
             }
         }
         #endregion
-        /// <summary>
-        /// 动态生成按钮
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        private void CreateButton(Form sender, int a, int b)
-        {
-            int row = 0;
-            for (int i = a; i <= b; i++)
-            {
-                if (i % 6 == 0 && i != 0)
-                {
-                    row++;
-                }
-                Button btn = new Button();
-                btn.Name = "MyButton" + i.ToString();
-                btn.Height = 50 / 2;
-                btn.Width = 50 / 2;
-                btn.Text = i.ToString();
-                btn.Font = new Font("", 6);
-                btn.Location = new Point((i % 6 * 55 + 5) / 2, (row * 55 + 5) / 2);
-                sender.Controls.Add(btn);
-                btn.Click += new System.EventHandler(btn_Click);
-            }
-            Button btncancel = new Button();
-            btncancel.Name = "ButtonCancel";
-            btncancel.Height = 50 / 2;
-            btncancel.Width = 75;
-            btncancel.Text = "Cancel";
-            btncancel.Location = new Point((33 % 6 * 55 + 5) / 2, (5 * 55 + 5) / 2);
-            sender.Controls.Add(btncancel);
-        }
-        public void btn_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            string number = btn.Text;
-            if (btn.Text == "Cancel")
-                frm.Close();
-            else
-                setRT1(number);
-        }
-        #region 获取按钮坐标
-        //获得各个AddMessageButtonCreate的位置
-        public int getbuttonRT1x()
-        {
-            return buttonRT1.Location.X + this.Location.X + groupBoxCmdConfig.Location.X;
-        }
-        public int getbuttonRT1y()
-        {
-            return buttonRT1.Location.Y + this.Location.Y + groupBoxCmdConfig.Location.Y + 50;
-        }
-
-        public int getbuttonRT2x()
-        {
-            return buttonRT2.Location.X + this.Location.X + groupBoxCmdConfig.Location.X;
-        }
-        public int getbuttonRT2y()
-        {
-            return buttonRT2.Location.Y + this.Location.Y + groupBoxCmdConfig.Location.Y + 50;
-        }
-
-        public int getbuttonSA1x()
-        {
-            return buttonSA1.Location.X + this.Location.X + groupBoxCmdConfig.Location.X;
-        }
-        public int getbuttonSA1y()
-        {
-            return buttonSA1.Location.Y + this.Location.Y + groupBoxCmdConfig.Location.Y + 50;
-        }
-
-        public int getbuttonSA2x()
-        {
-            return buttonSA2.Location.X + this.Location.X + groupBoxCmdConfig.Location.X;
-        }
-        public int getbuttonSA2y()
-        {
-            return buttonSA2.Location.Y + this.Location.Y + groupBoxCmdConfig.Location.Y + 50;
-        }
-
-        public int getbuttonWC1x()
-        {
-            return buttonWC1.Location.X + this.Location.X + groupBoxCmdConfig.Location.X;
-        }
-        public int getbuttonWC1y()
-        {
-            return buttonWC1.Location.Y + this.Location.Y + groupBoxCmdConfig.Location.Y + 50;
-        }
-
-        public int getbuttonWC2x()
-        {
-            return buttonRT2.Location.X + this.Location.X + groupBoxCmdConfig.Location.X;
-        }
-        
-        #endregion
-
-      
-        private void buttonRT1_Click(object sender, EventArgs e)
-        {
-            frm = new XtraForm();
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            int a = getbuttonRT1x();
-            int b = getbuttonRT1y();
-           
-            frm.Width = 335 / 2;
-            frm.Height = 335 / 2;
-            CreateButton(frm, 0, 31);
-            btnn = (Button)sender;
-            frm.Location = new Point(a, b);
-            frm.Show();
-        }
-
-        private void buttonSA1_Click(object sender, EventArgs e)
-        {
-            frm = new XtraForm();
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            int a = getbuttonSA1x();
-            int b = getbuttonSA1y();
-            frm.Location = new Point(a, b);
-            frm.Width = 335 / 2;
-            frm.Height = 335 / 2;
-            CreateButton(frm, 1, 30);
-            btnn = (Button)sender;
-            frm.Show();
-        }
-
-        private void buttonWC1_Click(object sender, EventArgs e)
-        {
-            frm = new XtraForm();
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            int a = getbuttonWC1x();
-            int b = getbuttonWC1y();
-            frm.Location = new Point(a, b);
-            frm.Width = 335 / 2;
-            frm.Height = 335 / 2;
-            CreateButton(frm, 1, 32);
-            btnn = (Button)sender;
-            frm.Show();
-        }
-
-        private void buttonRT2_Click(object sender, EventArgs e)
-        {
-            frm = new XtraForm();
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            int a = getbuttonRT2x();
-            int b = getbuttonRT2y();
-            frm.Location = new Point(a, b);
-            frm.Width = 335 / 2;
-            frm.Height = 335 / 2;
-            CreateButton(frm, 0, 31);
-            btnn = (Button)sender;
-            frm.Show();
-        }
-
-        private void buttonSA2_Click(object sender, EventArgs e)
-        {
-            frm = new XtraForm();
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            int a = getbuttonSA2x();
-            int b = getbuttonSA2y();
-            frm.Location = new Point(a, b);
-            frm.Width = 335 / 2;
-            frm.Height = 335 / 2;
-            CreateButton(frm, 1, 30);
-            btnn = (Button)sender;
-            frm.Show();
-        }
-      
-        //设置对应的textbox值为相应按键数值
-        public void setRT1(string str)
-        {
-            switch (btnn.Text)
-            {
-                case "...RT1":
-                    this.textBoxRT1.Text = str;
-                    frm.Close();
-                    break;
-                case "...SA1":
-                    this.textBoxSA1.Text = str;
-                    frm.Close();
-                    break;
-                case "...WC1":
-                    this.textBoxWC1.Text = str;
-                    frm.Close();
-                    break;
-                case "...WC2":
-                    this.textBoxWC2.Text = str;
-                    frm.Close();
-                    break;
-                case "...RT2":
-                    this.textBoxRT2.Text = str;
-                    frm.Close();
-                    break;
-                case "...SA2":
-                    this.textBoxSA2.Text = str;
-                    frm.Close();
-                    break;
-                default:                   
-                    break;
-            }
-        }
+  
         private void textBoxWC1_TextChanged(object sender, EventArgs e)
         {
             if (comboBoxMsgType.EditValue.ToString().Equals("BC_RT"))
@@ -473,8 +273,6 @@ namespace Demo1553
                         textBoxSA2.Visible = false;
                         textBoxWC2.Visible = false;
                         textBoxHEX2.Visible = false;
-                        buttonRT2.Visible = false;
-                        buttonSA2.Visible = false;
                         labelCWD2.Visible = false;
                         UpdateUI();
                     }
@@ -491,8 +289,6 @@ namespace Demo1553
                         textBoxSA2.Visible = false;
                         textBoxWC2.Visible = false;
                         textBoxHEX2.Visible = false;
-                        buttonRT2.Visible = false;
-                        buttonSA2.Visible = false;
                         labelCWD2.Visible = false;
                         UpdateUI();
                     }                  
@@ -509,8 +305,6 @@ namespace Demo1553
                         textBoxSA2.Visible = true;
                         textBoxWC2.Visible = true;
                         textBoxHEX2.Visible = true;
-//                         buttonRT2.Visible = true;
-//                         buttonSA2.Visible = true;
                         labelCWD2.Visible = true;
                         UpdateUI();
                     }

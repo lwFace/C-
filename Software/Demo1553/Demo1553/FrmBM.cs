@@ -22,7 +22,7 @@ namespace Demo1553
         {
             InitializeComponent();
             BoundBM = bm;
-            this.gridControl2.DataSource = BoundBM.moniMsgList;
+            this.gridControl2.DataSource = BoundBM.MonitorMsgList;
             this.gridView2.OptionsBehavior.Editable = false;
             this.gridView2.OptionsBehavior.ReadOnly = true;
         }

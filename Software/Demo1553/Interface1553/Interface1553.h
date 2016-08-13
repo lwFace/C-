@@ -22,7 +22,7 @@ typedef struct _callback_1553
 	unsigned short status2;/*状态字2*/
 	int sec;
 	int usec;
-	int length;/*有效数据长度*/
+	int length;/*有效数据长度，单位字*/
 	char payload[64];/*有效数据*/
 }CALLBACK_1553;
 

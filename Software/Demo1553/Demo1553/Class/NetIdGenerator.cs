@@ -18,7 +18,7 @@ namespace Demo1553.Class
                 foreach (var chn in card.Value.channels)
                 {
                     BC bc = chn.Value.GetBC();
-                    foreach (var msg in bc.MsgList)
+                    foreach (var msg in bc.ScheduMsgList)
                     {
                         if (!_idList.Contains(msg.NetId))
                         {

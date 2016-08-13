@@ -26,8 +26,8 @@ namespace Demo1553
         {
             InitializeComponent();
             BoundBC = bc;
-            this.gridControlConfig.DataSource = BoundBC.MsgList;
-            this.gridControlMonitor.DataSource = BoundBC.moniMsgList;
+            this.gridControlConfig.DataSource = BoundBC.ScheduMsgList;
+            this.gridControlMonitor.DataSource = BoundBC.MonitorMsgList;
             this.gridViewMonitor.OptionsBehavior.Editable = false;
             this.gridViewMonitor.OptionsBehavior.ReadOnly = true;
         }
@@ -35,6 +35,7 @@ namespace Demo1553
         private void FrmBC_Load(object sender, EventArgs e)
         {
             InitGridView();
+            BoundBC.IsRunning = true;
         }
         /// <summary>
         /// 初始化GridView
@@ -70,13 +71,13 @@ namespace Demo1553
         /// <param name="e"></param>
         private void gridViewConfig_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            int count = BoundBC.MsgList.Count;
-            BoundBC.MsgList[count - 1].WordSize = 1;
-            BoundBC.MsgList[count - 1].SrcSubRTAddr = 1;
-            BoundBC.MsgList[count - 1].DstRTAddr = 1;
-            BoundBC.MsgList[count - 1].SrcRTAddr = 1;
-            BoundBC.MsgList[count-1].DstSubRTAddr = 1;
-            FrmAddMsg frm = new FrmAddMsg(BoundBC.MsgList[count-1]);
+            int count = BoundBC.ScheduMsgList.Count;
+            BoundBC.ScheduMsgList[count - 1].WordSize = 1;
+            BoundBC.ScheduMsgList[count - 1].SrcSubRTAddr = 1;
+            BoundBC.ScheduMsgList[count - 1].DstRTAddr = 1;
+            BoundBC.ScheduMsgList[count - 1].SrcRTAddr = 1;
+            BoundBC.ScheduMsgList[count-1].DstSubRTAddr = 1;
+            FrmAddMsg frm = new FrmAddMsg(BoundBC.ScheduMsgList[count-1]);
             frm.ShowDialog();
             gridControlConfig.RefreshDataSource();
         }
@@ -197,7 +198,7 @@ namespace Demo1553
         {
             if (DialogResult.Yes == MessageBox.Show("确定清空消息列表？", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1))
             {
-                BoundBC.MsgList.Clear();
+                BoundBC.ScheduMsgList.Clear();
             }
         }
         /// <summary>
@@ -217,6 +218,11 @@ namespace Demo1553
             }
         }
         #endregion
+
+        private void FrmBC_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            BoundBC.IsRunning = false;
+        }
 
        
 
