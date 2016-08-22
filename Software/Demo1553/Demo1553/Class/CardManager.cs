@@ -44,17 +44,44 @@ namespace Demo1553
                 BC bc = CardManager.GetCard(GetCardIdBySrc(pInfo.src)).GetChannle(GetChnIdBySrc(pInfo.src)).GetBC();
                 if (bc.IsRunning)
                 {
-                    bc.MonitorMsgList.Add(new BoundRecvMessage(pInfo));
+                    long dt = 0;
+                    int count = bc.MonitorMsgList.Count;
+                    if (count != 0)
+                    {                        
+                        dt = ((long)pInfo.sec * 1000000 + pInfo.usec) - bc.MonitorMsgList[count - 1].Time.Ticks / 10 + new DateTime(1970, 1, 1).Ticks / 10;
+                    }
+                    bc.MonitorMsgList.Add(new BoundRecvMessage(pInfo, dt));
                 }                
             }
             if (CardManager.GetNodeBySrc(pInfo.src).Type == NodeType.RT)
             {
-                CardManager.GetCard(GetCardIdBySrc(pInfo.src)).GetChannle(GetChnIdBySrc(pInfo.src)).GetRT().MonitorMsgList.Add(new BoundRecvMessage(pInfo));
+                RT rt = CardManager.GetCard(GetCardIdBySrc(pInfo.src)).GetChannle(GetChnIdBySrc(pInfo.src)).GetRT();
+                if (rt.IsRunning)
+                {
+                    long dt = 0;
+                    int count = rt.MonitorMsgList.Count;
+                    if (count != 0)
+                    {
+                        dt = ((long)pInfo.sec * 1000000 + pInfo.usec) - rt.MonitorMsgList[count - 1].Time.Ticks / 10 + new DateTime(1970, 1, 1).Ticks / 10;
+                    }
+                    rt.MonitorMsgList.Add(new BoundRecvMessage(pInfo, dt));
+                }
             }
             if (CardManager.GetNodeBySrc(pInfo.src).Type == NodeType.BM)
             {
-                CardManager.GetCard(GetCardIdBySrc(pInfo.src)).GetChannle(GetChnIdBySrc(pInfo.src)).GetBM().MonitorMsgList.Add(new BoundRecvMessage(pInfo));
+                BM bm = CardManager.GetCard(GetCardIdBySrc(pInfo.src)).GetChannle(GetChnIdBySrc(pInfo.src)).GetBM();
+                if (bm.IsRunning)
+                {
+                    long dt = 0;
+                    int count = bm.MonitorMsgList.Count;
+                    if (count != 0)
+                    {
+                        dt = ((long)pInfo.sec * 1000000 + pInfo.usec) - bm.MonitorMsgList[count - 1].Time.Ticks / 10 + new DateTime(1970, 1, 1).Ticks / 10;
+                    }
+                    bm.MonitorMsgList.Add(new BoundRecvMessage(pInfo, dt));
+                }
             }
+
         }
         static private Node GetNodeBySrc(int src)
         {
@@ -91,16 +118,12 @@ namespace Demo1553
         /// <returns></returns>
         public static int Init()
         {
-            //string xmlConf = "";
             XmlDocument xmlDoc = new XmlDocument();
             XmlElement root = xmlDoc.CreateElement("init");
             xmlDoc.AppendChild(root);
             
             foreach (var card in cards)
             {
-                //Card card = new Card();
-                //Channel channel=new Channel();
-                //Node node=new Node();
                 if (card.Value.IsEnable == true)
                 {
                      XmlElement elementCard = xmlDoc.CreateElement("card");
@@ -213,7 +236,6 @@ namespace Demo1553
                                  elementChn.AppendChild(elementBM);
                              }
 
-                             
                          }
                      }
                 }

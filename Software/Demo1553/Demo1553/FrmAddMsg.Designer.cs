@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.groupBoxCmdConfig = new System.Windows.Forms.GroupBox();
             this.groupPayload = new DevExpress.XtraEditors.GroupControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -81,11 +81,19 @@
             this.textEdit25 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit23 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit24 = new DevExpress.XtraEditors.TextEdit();
+            this.textBoxHEX2 = new DevExpress.XtraEditors.TextEdit();
+            this.textBoxWC2 = new DevExpress.XtraEditors.TextEdit();
+            this.textBoxSA2 = new DevExpress.XtraEditors.TextEdit();
+            this.textBoxRT2 = new DevExpress.XtraEditors.TextEdit();
             this.labelHEX2 = new System.Windows.Forms.Label();
             this.labelWC2 = new System.Windows.Forms.Label();
             this.labelSA2 = new System.Windows.Forms.Label();
             this.labelRT2 = new System.Windows.Forms.Label();
             this.labelCWD2 = new System.Windows.Forms.Label();
+            this.textBoxHEX1 = new DevExpress.XtraEditors.TextEdit();
+            this.textBoxWC1 = new DevExpress.XtraEditors.TextEdit();
+            this.textBoxSA1 = new DevExpress.XtraEditors.TextEdit();
+            this.textBoxRT1 = new DevExpress.XtraEditors.TextEdit();
             this.labelHEX1 = new System.Windows.Forms.Label();
             this.labelWC1 = new System.Windows.Forms.Label();
             this.labelSA1 = new System.Windows.Forms.Label();
@@ -96,14 +104,9 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.textBoxRT1 = new DevExpress.XtraEditors.TextEdit();
-            this.textBoxSA1 = new DevExpress.XtraEditors.TextEdit();
-            this.textBoxWC1 = new DevExpress.XtraEditors.TextEdit();
-            this.textBoxHEX1 = new DevExpress.XtraEditors.TextEdit();
-            this.textBoxRT2 = new DevExpress.XtraEditors.TextEdit();
-            this.textBoxSA2 = new DevExpress.XtraEditors.TextEdit();
-            this.textBoxWC2 = new DevExpress.XtraEditors.TextEdit();
-            this.textBoxHEX2 = new DevExpress.XtraEditors.TextEdit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxPeriod = new DevExpress.XtraEditors.TextEdit();
+            this.chBoxPeriod = new System.Windows.Forms.CheckBox();
             this.groupBoxCmdConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupPayload)).BeginInit();
             this.groupPayload.SuspendLayout();
@@ -141,17 +144,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit25.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit23.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit24.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxHEX2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxWC2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxSA2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxRT2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxHEX1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxWC1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxSA1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxRT1.Properties)).BeginInit();
             this.groupBoxMsgType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxMsgType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxRT1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxSA1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxWC1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxHEX1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxRT2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxSA2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxWC2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxHEX2.Properties)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxPeriod.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxCmdConfig
@@ -598,6 +603,54 @@
             this.textEdit24.Size = new System.Drawing.Size(44, 20);
             this.textEdit24.TabIndex = 24;
             // 
+            // textBoxHEX2
+            // 
+            this.textBoxHEX2.Location = new System.Drawing.Point(383, 48);
+            this.textBoxHEX2.Name = "textBoxHEX2";
+            this.textBoxHEX2.Properties.DisplayFormat.FormatString = "X4";
+            this.textBoxHEX2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.textBoxHEX2.Properties.ReadOnly = true;
+            this.textBoxHEX2.Size = new System.Drawing.Size(50, 20);
+            this.textBoxHEX2.TabIndex = 24;
+            // 
+            // textBoxWC2
+            // 
+            this.textBoxWC2.Location = new System.Drawing.Point(278, 49);
+            this.textBoxWC2.Name = "textBoxWC2";
+            this.textBoxWC2.Properties.ReadOnly = true;
+            this.textBoxWC2.Size = new System.Drawing.Size(50, 20);
+            this.textBoxWC2.TabIndex = 22;
+            // 
+            // textBoxSA2
+            // 
+            this.textBoxSA2.Location = new System.Drawing.Point(182, 49);
+            this.textBoxSA2.Name = "textBoxSA2";
+            this.textBoxSA2.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.textBoxSA2.Properties.Mask.EditMask = "[0-9]{1,2}";
+            this.textBoxSA2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textBoxSA2.Size = new System.Drawing.Size(50, 20);
+            this.textBoxSA2.TabIndex = 20;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
+            conditionValidationRule6.ErrorText = "地址范围输入错误（0,31）";
+            conditionValidationRule6.Value1 = ((short)(0));
+            conditionValidationRule6.Value2 = ((short)(31));
+            this.dxValidationProvider1.SetValidationRule(this.textBoxSA2, conditionValidationRule6);
+            // 
+            // textBoxRT2
+            // 
+            this.textBoxRT2.Location = new System.Drawing.Point(96, 49);
+            this.textBoxRT2.Name = "textBoxRT2";
+            this.textBoxRT2.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.textBoxRT2.Properties.Mask.EditMask = "[0-9]{1,2}";
+            this.textBoxRT2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textBoxRT2.Size = new System.Drawing.Size(50, 20);
+            this.textBoxRT2.TabIndex = 18;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
+            conditionValidationRule1.ErrorText = "地址范围输入错误(0,31)";
+            conditionValidationRule1.Value1 = ((short)(0));
+            conditionValidationRule1.Value2 = ((short)(31));
+            this.dxValidationProvider1.SetValidationRule(this.textBoxRT2, conditionValidationRule1);
+            // 
             // labelHEX2
             // 
             this.labelHEX2.AutoSize = true;
@@ -643,6 +696,63 @@
             this.labelCWD2.Size = new System.Drawing.Size(48, 14);
             this.labelCWD2.TabIndex = 13;
             this.labelCWD2.Text = "CWD2:";
+            // 
+            // textBoxHEX1
+            // 
+            this.textBoxHEX1.Location = new System.Drawing.Point(383, 19);
+            this.textBoxHEX1.Name = "textBoxHEX1";
+            this.textBoxHEX1.Properties.DisplayFormat.FormatString = "X4";
+            this.textBoxHEX1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.textBoxHEX1.Properties.ReadOnly = true;
+            this.textBoxHEX1.Size = new System.Drawing.Size(50, 20);
+            this.textBoxHEX1.TabIndex = 11;
+            // 
+            // textBoxWC1
+            // 
+            this.textBoxWC1.Location = new System.Drawing.Point(278, 19);
+            this.textBoxWC1.Name = "textBoxWC1";
+            this.textBoxWC1.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.textBoxWC1.Properties.Mask.EditMask = "[0-9]{1,2}";
+            this.textBoxWC1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textBoxWC1.Size = new System.Drawing.Size(50, 20);
+            this.textBoxWC1.TabIndex = 9;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
+            conditionValidationRule2.ErrorText = "长度范围输入错误(1,32)";
+            conditionValidationRule2.Value1 = ((short)(1));
+            conditionValidationRule2.Value2 = ((short)(32));
+            this.dxValidationProvider1.SetValidationRule(this.textBoxWC1, conditionValidationRule2);
+            this.textBoxWC1.TextChanged += new System.EventHandler(this.textBoxWC1_TextChanged);
+            // 
+            // textBoxSA1
+            // 
+            this.textBoxSA1.Location = new System.Drawing.Point(182, 19);
+            this.textBoxSA1.Name = "textBoxSA1";
+            this.textBoxSA1.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.textBoxSA1.Properties.Mask.EditMask = "[0-9]{1,2}";
+            this.textBoxSA1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textBoxSA1.Size = new System.Drawing.Size(50, 20);
+            this.textBoxSA1.TabIndex = 7;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
+            conditionValidationRule3.ErrorText = "地址范围输入错误（0,31）";
+            conditionValidationRule3.Value1 = ((short)(0));
+            conditionValidationRule3.Value2 = ((short)(31));
+            this.dxValidationProvider1.SetValidationRule(this.textBoxSA1, conditionValidationRule3);
+            // 
+            // textBoxRT1
+            // 
+            this.textBoxRT1.Location = new System.Drawing.Point(96, 19);
+            this.textBoxRT1.Name = "textBoxRT1";
+            this.textBoxRT1.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.textBoxRT1.Properties.Mask.EditMask = "[0-9]{1,2}";
+            this.textBoxRT1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textBoxRT1.Size = new System.Drawing.Size(50, 20);
+            this.textBoxRT1.TabIndex = 5;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
+            conditionValidationRule4.ErrorText = "地址范围输入错误（0,31）";
+            conditionValidationRule4.Value1 = 0;
+            conditionValidationRule4.Value2 = 31;
+            this.dxValidationProvider1.SetValidationRule(this.textBoxRT1, conditionValidationRule4);
+            this.textBoxRT1.Leave += new System.EventHandler(this.textBoxRT1_EditValueChanged);
             // 
             // labelHEX1
             // 
@@ -695,7 +805,7 @@
             this.groupBoxMsgType.Controls.Add(this.comboBoxMsgType);
             this.groupBoxMsgType.Location = new System.Drawing.Point(8, 12);
             this.groupBoxMsgType.Name = "groupBoxMsgType";
-            this.groupBoxMsgType.Size = new System.Drawing.Size(443, 50);
+            this.groupBoxMsgType.Size = new System.Drawing.Size(200, 50);
             this.groupBoxMsgType.TabIndex = 6;
             this.groupBoxMsgType.TabStop = false;
             this.groupBoxMsgType.Text = "Message Type";
@@ -741,110 +851,33 @@
             // 
             this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
             // 
-            // textBoxRT1
+            // groupBox1
             // 
-            this.textBoxRT1.Location = new System.Drawing.Point(96, 19);
-            this.textBoxRT1.Name = "textBoxRT1";
-            this.textBoxRT1.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.textBoxRT1.Properties.Mask.EditMask = "[0-9]{1,2}";
-            this.textBoxRT1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textBoxRT1.Size = new System.Drawing.Size(50, 20);
-            this.textBoxRT1.TabIndex = 5;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
-            conditionValidationRule5.ErrorText = "地址范围输入错误（0,31）";
-            conditionValidationRule5.Value1 = 0;
-            conditionValidationRule5.Value2 = 31;
-            this.dxValidationProvider1.SetValidationRule(this.textBoxRT1, conditionValidationRule5);
-            this.textBoxRT1.Leave += new System.EventHandler(this.textBoxRT1_EditValueChanged);
+            this.groupBox1.Controls.Add(this.textBoxPeriod);
+            this.groupBox1.Controls.Add(this.chBoxPeriod);
+            this.groupBox1.Location = new System.Drawing.Point(247, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(204, 50);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Period";
             // 
-            // textBoxSA1
+            // textBoxPeriod
             // 
-            this.textBoxSA1.Location = new System.Drawing.Point(182, 19);
-            this.textBoxSA1.Name = "textBoxSA1";
-            this.textBoxSA1.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.textBoxSA1.Properties.Mask.EditMask = "[0-9]{1,2}";
-            this.textBoxSA1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textBoxSA1.Size = new System.Drawing.Size(50, 20);
-            this.textBoxSA1.TabIndex = 7;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
-            conditionValidationRule4.ErrorText = "地址范围输入错误（0,31）";
-            conditionValidationRule4.Value1 = ((short)(0));
-            conditionValidationRule4.Value2 = ((short)(31));
-            this.dxValidationProvider1.SetValidationRule(this.textBoxSA1, conditionValidationRule4);
+            this.textBoxPeriod.Location = new System.Drawing.Point(39, 20);
+            this.textBoxPeriod.Name = "textBoxPeriod";
+            this.textBoxPeriod.Size = new System.Drawing.Size(50, 20);
+            this.textBoxPeriod.TabIndex = 9;
             // 
-            // textBoxWC1
+            // chBoxPeriod
             // 
-            this.textBoxWC1.Location = new System.Drawing.Point(278, 19);
-            this.textBoxWC1.Name = "textBoxWC1";
-            this.textBoxWC1.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.textBoxWC1.Properties.Mask.EditMask = "[0-9]{1,2}";
-            this.textBoxWC1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textBoxWC1.Size = new System.Drawing.Size(50, 20);
-            this.textBoxWC1.TabIndex = 9;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
-            conditionValidationRule3.ErrorText = "长度范围输入错误(1,32)";
-            conditionValidationRule3.Value1 = ((short)(1));
-            conditionValidationRule3.Value2 = ((short)(32));
-            this.dxValidationProvider1.SetValidationRule(this.textBoxWC1, conditionValidationRule3);
-            this.textBoxWC1.TextChanged += new System.EventHandler(this.textBoxWC1_TextChanged);
-            // 
-            // textBoxHEX1
-            // 
-            this.textBoxHEX1.Location = new System.Drawing.Point(383, 19);
-            this.textBoxHEX1.Name = "textBoxHEX1";
-            this.textBoxHEX1.Properties.DisplayFormat.FormatString = "X4";
-            this.textBoxHEX1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.textBoxHEX1.Properties.ReadOnly = true;
-            this.textBoxHEX1.Size = new System.Drawing.Size(50, 20);
-            this.textBoxHEX1.TabIndex = 11;
-            // 
-            // textBoxRT2
-            // 
-            this.textBoxRT2.Location = new System.Drawing.Point(96, 49);
-            this.textBoxRT2.Name = "textBoxRT2";
-            this.textBoxRT2.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.textBoxRT2.Properties.Mask.EditMask = "[0-9]{1,2}";
-            this.textBoxRT2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textBoxRT2.Size = new System.Drawing.Size(50, 20);
-            this.textBoxRT2.TabIndex = 18;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
-            conditionValidationRule2.ErrorText = "地址范围输入错误(0,31)";
-            conditionValidationRule2.Value1 = ((short)(0));
-            conditionValidationRule2.Value2 = ((short)(31));
-            this.dxValidationProvider1.SetValidationRule(this.textBoxRT2, conditionValidationRule2);
-            // 
-            // textBoxSA2
-            // 
-            this.textBoxSA2.Location = new System.Drawing.Point(182, 49);
-            this.textBoxSA2.Name = "textBoxSA2";
-            this.textBoxSA2.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.textBoxSA2.Properties.Mask.EditMask = "[0-9]{1,2}";
-            this.textBoxSA2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textBoxSA2.Size = new System.Drawing.Size(50, 20);
-            this.textBoxSA2.TabIndex = 20;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Between;
-            conditionValidationRule1.ErrorText = "地址范围输入错误（0,31）";
-            conditionValidationRule1.Value1 = ((short)(0));
-            conditionValidationRule1.Value2 = ((short)(31));
-            this.dxValidationProvider1.SetValidationRule(this.textBoxSA2, conditionValidationRule1);
-            // 
-            // textBoxWC2
-            // 
-            this.textBoxWC2.Location = new System.Drawing.Point(278, 49);
-            this.textBoxWC2.Name = "textBoxWC2";
-            this.textBoxWC2.Properties.ReadOnly = true;
-            this.textBoxWC2.Size = new System.Drawing.Size(50, 20);
-            this.textBoxWC2.TabIndex = 22;
-            // 
-            // textBoxHEX2
-            // 
-            this.textBoxHEX2.Location = new System.Drawing.Point(383, 48);
-            this.textBoxHEX2.Name = "textBoxHEX2";
-            this.textBoxHEX2.Properties.DisplayFormat.FormatString = "X4";
-            this.textBoxHEX2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.textBoxHEX2.Properties.ReadOnly = true;
-            this.textBoxHEX2.Size = new System.Drawing.Size(50, 20);
-            this.textBoxHEX2.TabIndex = 24;
+            this.chBoxPeriod.AutoSize = true;
+            this.chBoxPeriod.Location = new System.Drawing.Point(18, 24);
+            this.chBoxPeriod.Name = "chBoxPeriod";
+            this.chBoxPeriod.Size = new System.Drawing.Size(15, 14);
+            this.chBoxPeriod.TabIndex = 8;
+            this.chBoxPeriod.UseVisualStyleBackColor = true;
+            this.chBoxPeriod.CheckedChanged += new System.EventHandler(this.chBoxPeriod_CheckedChanged);
             // 
             // FrmAddMsg
             // 
@@ -852,13 +885,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 342);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.groupBoxCmdConfig);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.groupBoxMsgType);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmAddMsg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAddMsg";
+            this.Text = "消息编辑";
             this.Load += new System.EventHandler(this.FrmAddMsg_Load);
             this.groupBoxCmdConfig.ResumeLayout(false);
             this.groupBoxCmdConfig.PerformLayout();
@@ -899,17 +934,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit25.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit23.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit24.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxHEX2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxWC2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxSA2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxRT2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxHEX1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxWC1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxSA1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxRT1.Properties)).EndInit();
             this.groupBoxMsgType.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxMsgType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxRT1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxSA1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxWC1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxHEX1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxRT2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxSA2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxWC2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxHEX2.Properties)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxPeriod.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -986,5 +1024,8 @@
         private DevExpress.XtraEditors.TextEdit textBoxWC1;
         private DevExpress.XtraEditors.TextEdit textBoxSA1;
         private DevExpress.XtraEditors.TextEdit textBoxRT1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chBoxPeriod;
+        private DevExpress.XtraEditors.TextEdit textBoxPeriod;
     }
 }

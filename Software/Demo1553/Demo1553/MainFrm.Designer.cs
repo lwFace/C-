@@ -49,6 +49,7 @@
             this.dockPanelResource = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.treeListResource = new DevExpress.XtraTreeList.TreeList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.dockPanelOutPut = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
             this.outputControl1 = new outputControl.outputControl();
@@ -265,6 +266,7 @@
             // 
             // treeListResource
             // 
+            this.treeListResource.ColumnsImageList = this.imageList1;
             this.treeListResource.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListResource.Location = new System.Drawing.Point(0, 0);
             this.treeListResource.Name = "treeListResource";
@@ -274,10 +276,29 @@
             this.treeListResource.OptionsView.ShowColumns = false;
             this.treeListResource.OptionsView.ShowHorzLines = false;
             this.treeListResource.OptionsView.ShowIndicator = false;
+            this.treeListResource.SelectImageList = this.imageList1;
             this.treeListResource.Size = new System.Drawing.Size(192, 406);
+            this.treeListResource.StateImageList = this.imageList1;
             this.treeListResource.TabIndex = 0;
             this.treeListResource.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeListResource_AfterCheckNode);
+            this.treeListResource.CustomDrawNodeImages += new DevExpress.XtraTreeList.CustomDrawNodeImagesEventHandler(this.ImageList_CustomDrawNodeImages);
             this.treeListResource.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeListResource_MouseDoubleClick);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "516050.png");
+            this.imageList1.Images.SetKeyName(1, "display_card_graphic_hardware_32px_1785_easyicon.net.ico");
+            this.imageList1.Images.SetKeyName(2, "1088563.png");
+            this.imageList1.Images.SetKeyName(3, "1109530.png");
+            this.imageList1.Images.SetKeyName(4, "3805.png");
+            this.imageList1.Images.SetKeyName(5, "display_card_graphic_hardware_16px_1785_easyicon.net.ico");
+            this.imageList1.Images.SetKeyName(6, "1097488.png");
+            this.imageList1.Images.SetKeyName(7, "folder_vertical_document.png");
+            this.imageList1.Images.SetKeyName(8, "non_derivative.png");
+            this.imageList1.Images.SetKeyName(9, "vbox.png");
+            this.imageList1.Images.SetKeyName(10, "node.png");
             // 
             // dockPanelOutPut
             // 
@@ -422,5 +443,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.Bar bar3;
+        private System.Windows.Forms.ImageList imageList1;
+       
     }
 }

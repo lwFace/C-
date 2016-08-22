@@ -236,41 +236,82 @@ namespace Demo1553
 
         }
 
+        #region 初始化按钮
+        public void LoopTree()
+        {
+            foreach (TreeListNode node in treeListResource.Nodes)
+            {
+                UpdateNodeStatus(node);
+                if (node.Nodes.Count > 0)
+                {
+                    LoopTreeNodes(node);
+                }
+
+            }
+        }
+
+        public void LoopTreeNodes(TreeListNode node)
+        {         
+            foreach (TreeListNode _childNode in node.Nodes)
+            {
+                UpdateNodeStatus(_childNode);
+                LoopTreeNodes(_childNode);
+            }
+        }
+
         private void barBtnInit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            LoopTree();
             CardManager.Register("");
             CardManager.Init();
         }
-
-        private void treeListResource_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        /// <summary>
+        /// 根据treelist各个check的状态更新各节点使能状态
+        /// </summary>
+        /// <param name="tNode">treelist的节点</param>
+        private void UpdateNodeStatus(TreeListNode tNode)
         {
-            BoundResourceBase res = e.Node["Tag"] as BoundResourceBase;
+             BoundResourceBase res = tNode["Tag"] as BoundResourceBase;
             switch (res.GetResourceType())
             {
                 case ResourceType.Card:
-                    CardManager.GetCard(res.GetResourceId()).IsEnable = e.Node.Checked;
+                    if ((tNode.CheckState == CheckState.Checked) || (tNode.CheckState == CheckState.Indeterminate))
+                    {
+                        CardManager.GetCard(res.GetResourceId()).IsEnable = true;
+                    }
+                    else
+                    {
+                        CardManager.GetCard(res.GetResourceId()).IsEnable = false;
+                    }
                     break;
                 case ResourceType.Channel:
                     {
-                        BoundResourceBase resCard = e.Node.ParentNode["Tag"] as BoundResourceBase;
-                        CardManager.GetCard(resCard.GetResourceId()).GetChannle(res.GetResourceId()).IsEnable = e.Node.Checked;
+                        BoundResourceBase resCard = tNode.ParentNode["Tag"] as BoundResourceBase;
+                        if ((tNode.CheckState == CheckState.Checked) || (tNode.CheckState == CheckState.Indeterminate))
+                        {
+                            CardManager.GetCard(resCard.GetResourceId()).GetChannle(res.GetResourceId()).IsEnable = true;
+                        }
+                        else
+                        {
+                            CardManager.GetCard(resCard.GetResourceId()).GetChannle(res.GetResourceId()).IsEnable = false;
+                        }
                     }
                     break;
                 case ResourceType.Node:
                     {
                         BoundResourceNode node = (BoundResourceNode)res;
-                        BoundResourceBase resChn = e.Node.ParentNode["Tag"] as BoundResourceBase;
-                        BoundResourceBase resCard = e.Node.ParentNode.ParentNode["Tag"] as BoundResourceBase;
+                        BoundResourceBase resChn = tNode.ParentNode["Tag"] as BoundResourceBase;
+                        BoundResourceBase resCard = tNode.ParentNode.ParentNode["Tag"] as BoundResourceBase;
                         switch (node.GetNodeType())
                         {
                             case NodeType.BC:
-                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetBC().IsEnable = e.Node.Checked;
+                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetBC().IsEnable = tNode.Checked;
                                 break;
                             case NodeType.RT:
-                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetRT().IsEnable = e.Node.Checked;
+                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetRT().IsEnable = tNode.Checked;
                                 break;
                             case NodeType.BM:
-                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetBM().IsEnable = e.Node.Checked;
+                                CardManager.GetCard(resCard.GetResourceId()).GetChannle(resChn.GetResourceId()).GetBM().IsEnable = tNode.Checked;
                                 break;
                            default:
                                 break;
@@ -281,15 +322,60 @@ namespace Demo1553
                     break;
             }
         }
+        #endregion
+        private void treeListResource_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        {
+            SetCheckedChildNodes(e.Node, e.Node.CheckState);
+            SetCheckedParentNodes(e.Node, e.Node.CheckState);
+        }
+
+        #region 父子节点CheckState状态同步
+
+        public void SetCheckedChildNodes(TreeListNode node, CheckState check)
+        {
+            for (int i = 0; i < node.Nodes.Count; i++)
+            {
+                node.Nodes[i].CheckState = check;
+                SetCheckedChildNodes(node.Nodes[i], check);
+            }
+        }
+
+        public void SetCheckedParentNodes(TreeListNode node, CheckState check)
+        {
+            if (node.ParentNode != null)
+            {
+                bool b = false;
+                CheckState state;
+                for (int i = 0; i < node.ParentNode.Nodes.Count; i++)
+                {
+                    state = (CheckState)node.ParentNode.Nodes[i].CheckState;
+                    if (!check.Equals(state))
+                    {
+                        b = !b;
+                        break;
+                    }
+                }
+                node.ParentNode.CheckState = b ? CheckState.Indeterminate : check;
+                SetCheckedParentNodes(node.ParentNode, check);
+            }
+        }
+        #endregion
 
         private void barBtnStart_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CardManager.Start();
+
         }
 
         private void btnStop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CardManager.Stop();
+        }
+
+        private void ImageList_CustomDrawNodeImages(object sender, DevExpress.XtraTreeList.CustomDrawNodeImagesEventArgs e)
+        {
+            //层层对应
+            e.SelectImageIndex = e.Node.Level;//e.SelectImageIndex为图片在ImageList中的Index
         }
        
     }

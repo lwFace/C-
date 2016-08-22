@@ -53,6 +53,17 @@ DLL_EXPORT char* getLastErr()
 }
 
 
+inline void gettimeofday(struct timeval *tp, struct timezone * /* = 0 */)
+{
+	SYSTEMTIME lpSystemTime;
+	time_t t;
+	t = time(NULL);
+	GetSystemTime(&lpSystemTime); 
+	tp->tv_usec = lpSystemTime.wMilliseconds*1000;
+	tp->tv_sec = (long)t;
+
+}        
+
 DWORD WINAPI recvThread(void* pParam)
 {
 	CALLBACK_1553 msg;
@@ -61,6 +72,7 @@ DWORD WINAPI recvThread(void* pParam)
 	{
 		msg.payload[i] = i;
 	}
+	struct timeval tNow;
 	while(gRunFlag)
 	{
 		if (gListener==NULL)
@@ -70,12 +82,19 @@ DWORD WINAPI recvThread(void* pParam)
 		}		
 		for (int i=0;i<31;i++)
 		{		
+			if (!gRunFlag)
+			{
+				break;
+			}
+			gettimeofday(&tNow,NULL);
 			msg.cmd1=0x840;
 			msg.srcAddr = 1;
 			msg.subSrcAddr = 1;
 			msg.dstAddr = 255;
 			msg.subDstAddr = 255;
 			msg.length = i+1;	
+			msg.sec = tNow.tv_sec;
+			msg.usec = tNow.tv_usec;
 			msg.src = 0;//BC
 			gListener(&msg,NULL);
 			msg.src = 1;//RT

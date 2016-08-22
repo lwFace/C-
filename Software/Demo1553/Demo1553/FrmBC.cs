@@ -11,6 +11,7 @@ using Be.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Runtime.InteropServices;
+using DevExpress.Utils;
 
 namespace Demo1553
 {
@@ -44,6 +45,30 @@ namespace Demo1553
         {
             #region 监控列表
             this.gridViewMonitor.Columns["Payload"].Visible = false;
+            this.gridViewMonitor.Columns["src"].Visible = false;
+            this.gridViewMonitor.Columns["cmd1"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridViewMonitor.Columns["cmd1"].DisplayFormat.FormatString = "X4";
+            this.gridViewMonitor.Columns["cmd2"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridViewMonitor.Columns["cmd2"].DisplayFormat.FormatString = "X4";
+            this.gridViewMonitor.Columns["status1"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridViewMonitor.Columns["status1"].DisplayFormat.FormatString = "X4";
+            this.gridViewMonitor.Columns["status2"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridViewMonitor.Columns["status2"].DisplayFormat.FormatString = "X4";
+            //this.gridViewMonitor.Columns["src"].Caption = "物理地址信息";
+            this.gridViewMonitor.Columns["msgId"].Caption = "ID";
+            this.gridViewMonitor.Columns["cmd2"].Caption = "命令字2";
+            this.gridViewMonitor.Columns["cmd1"].Caption = "命令字1";
+            this.gridViewMonitor.Columns["status2"].Caption = "状态2";
+            this.gridViewMonitor.Columns["status1"].Caption = "状态1";
+            this.gridViewMonitor.Columns["srcAddr"].Caption = "源地址";
+            this.gridViewMonitor.Columns["subSrcAddr"].Caption = "源子地址";
+            this.gridViewMonitor.Columns["dstAddr"].Caption = "目标地址";
+            this.gridViewMonitor.Columns["subDstAddr"].Caption = "目标子地址";
+            this.gridViewMonitor.Columns["Time"].Caption = "时间戳";
+            this.gridViewMonitor.Columns["Time"].DisplayFormat.FormatType = FormatType.DateTime;
+            this.gridViewMonitor.Columns["Time"].DisplayFormat.FormatString = "HH:mm:ss.ffffff";
+            this.gridViewMonitor.Columns["dt"].Caption = "△T";
+            this.gridViewMonitor.Columns["WordSize"].Caption = "数据字长度";
             #endregion
             #region 配置列表
             this.gridViewConfig.Columns["Payload"].Visible = false;            
@@ -58,7 +83,7 @@ namespace Demo1553
             this.gridViewConfig.Columns["SrcRTAddr"].Caption = "源RT地址";
             this.gridViewConfig.Columns["SrcSubRTAddr"].Caption = "源RT子地址";
             this.gridViewConfig.Columns["DstRTAddr"].Caption = "目的RT地址";
-            this.gridViewConfig.Columns["DstSubRTAddr"].Caption = "目的RT地址";
+            this.gridViewConfig.Columns["DstSubRTAddr"].Caption = "目的RT子地址";
             this.gridViewConfig.Columns["Period"].Caption = "周期(ms)";
             this.gridViewConfig.Columns["WordSize"].Caption = "数据字长度";
             this.gridViewConfig.Columns["MsgType"].Caption = "消息类型";
@@ -76,7 +101,7 @@ namespace Demo1553
             BoundBC.ScheduMsgList[count - 1].SrcSubRTAddr = 1;
             BoundBC.ScheduMsgList[count - 1].DstRTAddr = 1;
             BoundBC.ScheduMsgList[count - 1].SrcRTAddr = 1;
-            BoundBC.ScheduMsgList[count-1].DstSubRTAddr = 1;
+            BoundBC.ScheduMsgList[count - 1].DstSubRTAddr = 1;
             FrmAddMsg frm = new FrmAddMsg(BoundBC.ScheduMsgList[count-1]);
             frm.ShowDialog();
             gridControlConfig.RefreshDataSource();
@@ -88,11 +113,11 @@ namespace Demo1553
         /// <param name="e"></param>
         private void gridViewMonitor_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            int dataLength = (int)this.gridViewMonitor.GetRowCellValue(this.gridViewMonitor.FocusedRowHandle, this.gridViewMonitor.Columns["WordSize"]);
-            int wordSize = dataLength*2;
-            byte[] array = new byte[wordSize];
-            byte []recvData = (byte[])this.gridViewMonitor.GetRowCellValue(this.gridViewMonitor.FocusedRowHandle, this.gridViewMonitor.Columns["Payload"]);
-            Buffer.BlockCopy(recvData, 0, array, 0, wordSize);
+            int wordSize = (int)this.gridViewMonitor.GetRowCellValue(this.gridViewMonitor.FocusedRowHandle, this.gridViewMonitor.Columns["WordSize"]);
+            int dataLength = wordSize * 2;
+            byte[] array = new byte[dataLength];
+            byte[] recvData = (byte[])this.gridViewMonitor.GetRowCellValue(this.gridViewMonitor.FocusedRowHandle, this.gridViewMonitor.Columns["Payload"]);
+            Buffer.BlockCopy(recvData, 0, array, 0, dataLength);
             DynamicByteProvider provider = new DynamicByteProvider(array);
             this.hexBoxBcPayload.ByteProvider = provider;           
         }
@@ -103,11 +128,11 @@ namespace Demo1553
         /// <param name="e"></param>
         private void gridViewConfig_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            int dataLength = (int)this.gridViewConfig.GetRowCellValue(this.gridViewConfig.FocusedRowHandle, this.gridViewConfig.Columns["WordSize"]);
-            int wordSize = dataLength * 2;
-            byte[] array = new byte[wordSize];
+            int wordSize = (int)this.gridViewConfig.GetRowCellValue(this.gridViewConfig.FocusedRowHandle, this.gridViewConfig.Columns["WordSize"]);
+            int dataLength = wordSize * 2;
+            byte[] array = new byte[dataLength];
             byte[] recvData = (byte[])this.gridViewConfig.GetRowCellValue(this.gridViewConfig.FocusedRowHandle, this.gridViewConfig.Columns["Payload"]);
-            Buffer.BlockCopy(recvData, 0, array, 0, wordSize);
+            Buffer.BlockCopy(recvData, 0, array, 0, dataLength);
             DynamicByteProvider provider = new DynamicByteProvider(array);
             this.hexBoxBcPayload.ByteProvider = provider;  
         }
@@ -222,9 +247,7 @@ namespace Demo1553
         private void FrmBC_FormClosing(object sender, FormClosingEventArgs e)
         {
             BoundBC.IsRunning = false;
-        }
-
-       
+        } 
 
     }
 }

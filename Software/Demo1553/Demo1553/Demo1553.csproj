@@ -88,6 +88,12 @@
     <Compile Include="FrmAddMsg.Designer.cs">
       <DependentUpon>FrmAddMsg.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAddRTMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddRTMsg.Designer.cs">
+      <DependentUpon>FrmAddRTMsg.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAddMsg.resx">
       <DependentUpon>FrmAddMsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddRTMsg.resx">
+      <DependentUpon>FrmAddRTMsg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBC.resx">
       <DependentUpon>FrmBC.cs</DependentUpon>
@@ -156,6 +165,11 @@
     <Content Include="CardResource.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\cog_go.png" />
+    <None Include="Resources\cog.png" />
+    <None Include="Resources\cog_delete.png" />
+    <None Include="Resources\cog_edit.png" />
+    <None Include="Resources\cog_add.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

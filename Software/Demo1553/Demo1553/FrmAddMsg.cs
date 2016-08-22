@@ -33,6 +33,7 @@ namespace Demo1553
 
         private void FrmAddMsg_Load(object sender, EventArgs e)
         {
+            textBoxPeriod.Enabled = false;
             #region TextEdit 数组
             textEditGroup = new TextEdit[32];
             textEditGroup[0] = textEdit1;
@@ -116,7 +117,7 @@ namespace Demo1553
                 StringBuilder sb = new StringBuilder();
                 for(int j=0;j<2;j++)
                 {
-                   sb.Append(payload[i * 2 + j].ToString("X2")) ;
+                   sb.Append(payload[i * 2 + 1-j].ToString("X2")) ;
                 }
                 textEditGroup[i].Text = sb.ToString();
             }
@@ -145,6 +146,7 @@ namespace Demo1553
                         textBoxRT1.DataBindings.Add("EditValue", boundMessage, "DstRTAddr");
                         textBoxSA1.DataBindings.Add("EditValue", boundMessage, "DstSubRTAddr");
                         textBoxHEX1.DataBindings.Add("EditValue", boundMessage, "Cmd1");
+                        textBoxPeriod.DataBindings.Add("EditValue", boundMessage, "Period");
                         SetPayload(boundMessage.Payload);
                         break;
                     case MessageType.RT_BC:
@@ -156,6 +158,7 @@ namespace Demo1553
                         textBoxRT1.DataBindings.Add("EditValue", boundMessage, "SrcRTAddr");
                         textBoxSA1.DataBindings.Add("EditValue", boundMessage, "SrcSubRTAddr");
                         textBoxHEX1.DataBindings.Add("EditValue", boundMessage, "Cmd1");
+                        textBoxPeriod.DataBindings.Add("EditValue", boundMessage, "Period");
                         break;
                     case MessageType.RT_RT:
                         comboBoxMsgType.SelectedIndex = 2;
@@ -171,6 +174,7 @@ namespace Demo1553
                         textBoxSA2.DataBindings.Add("EditValue", boundMessage, "SrcSubRTAddr");
                         textBoxHEX1.DataBindings.Add("EditValue", boundMessage, "Cmd1");
                         textBoxHEX2.DataBindings.Add("EditValue", boundMessage, "Cmd2");
+                        textBoxPeriod.DataBindings.Add("EditValue", boundMessage, "Period");
                         break;
                     default:
                         break;
@@ -188,6 +192,7 @@ namespace Demo1553
                 case "BC_RT":
                     {
                         boundMessage.MsgType = MessageType.BC_RT;
+                        boundMessage.Period = uint.Parse(textBoxPeriod.Text);
                         boundMessage.WordSize = int.Parse(textBoxWC1.Text);
                         boundMessage.DstRTAddr = byte.Parse(textBoxRT1.Text);
                         boundMessage.DstSubRTAddr = byte.Parse(textBoxSA1.Text);
@@ -199,6 +204,7 @@ namespace Demo1553
                 case "RT_BC":
                     {
                         boundMessage.MsgType = MessageType.RT_BC;
+                        boundMessage.Period = uint.Parse(textBoxPeriod.Text);
                         boundMessage.WordSize = int.Parse(textBoxWC1.Text);
                         boundMessage.SrcRTAddr = byte.Parse(textBoxRT1.Text);
                         boundMessage.SrcSubRTAddr = byte.Parse(textBoxSA1.Text);
@@ -209,6 +215,7 @@ namespace Demo1553
                 case "RT_RT":
                     {
                         boundMessage.MsgType = MessageType.RT_RT;
+                        boundMessage.Period = uint.Parse(textBoxPeriod.Text);
                         boundMessage.WordSize = int.Parse(textBoxWC1.Text);
                         boundMessage.DstRTAddr = byte.Parse(textBoxRT1.Text);
                         boundMessage.DstSubRTAddr = byte.Parse(textBoxSA1.Text);
@@ -349,8 +356,17 @@ namespace Demo1553
           //  UpdateMsg();
         }
 
-       
-
-
+        private void chBoxPeriod_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBoxPeriod.Checked == true)
+            {
+                textBoxPeriod.Enabled = true;
+            }
+            else
+            {
+                textBoxPeriod.Enabled = false;
+                textBoxPeriod.Text = "";
+            }
+        }
     }
 }

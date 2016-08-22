@@ -32,7 +32,7 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageMonitor = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewMonitor = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControlPayload = new DevExpress.XtraEditors.GroupControl();
             this.hexBoxBcPayload = new Be.Windows.Forms.HexBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -41,7 +41,7 @@
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPageMonitor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewMonitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).BeginInit();
             this.groupControlPayload.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,7 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPageMonitor;
@@ -77,24 +78,25 @@
             this.xtraTabPageMonitor.Controls.Add(this.gridControl2);
             this.xtraTabPageMonitor.Name = "xtraTabPageMonitor";
             this.xtraTabPageMonitor.Size = new System.Drawing.Size(788, 207);
-            this.xtraTabPageMonitor.Text = "Monitor";
+            this.xtraTabPageMonitor.Text = "监控";
             // 
             // gridControl2
             // 
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
-            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.MainView = this.gridViewMonitor;
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.Size = new System.Drawing.Size(788, 207);
             this.gridControl2.TabIndex = 2;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gridViewMonitor});
             // 
-            // gridView2
+            // gridViewMonitor
             // 
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridViewMonitor.GridControl = this.gridControl2;
+            this.gridViewMonitor.Name = "gridViewMonitor";
+            this.gridViewMonitor.OptionsView.ShowGroupPanel = false;
+            this.gridViewMonitor.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridViewMonitor_RowCellClick);
             // 
             // groupControlPayload
             // 
@@ -132,6 +134,7 @@
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "FrmBM";
             this.Text = "FrmBM";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmBM_FormClosing);
             this.Load += new System.EventHandler(this.FrmBM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
@@ -139,7 +142,7 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPageMonitor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewMonitor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).EndInit();
             this.groupControlPayload.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -152,7 +155,7 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageMonitor;
         private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewMonitor;
         private DevExpress.XtraEditors.GroupControl groupControlPayload;
         private Be.Windows.Forms.HexBox hexBoxBcPayload;
 

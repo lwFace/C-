@@ -17,12 +17,14 @@ namespace Demo1553
         public BoundRTMessage()
         {
             NetId = NetIdGenerator.GenerateNetId();
-            Payload = new ushort[32];
+            Payload = new byte[64];
+            Tag = this;
         }
         public byte RTAddr { get { return rtAddr; } set { rtAddr = value; } }
         public byte SubRTAddr { get { return subRTAddr; } set { subRTAddr = value; } }
         public uint Length { get; set; }
-        public ushort[] Payload { get; set; }
+        public byte[] Payload { get; set; }
+        public object Tag { get; set; }
         
     }
 }

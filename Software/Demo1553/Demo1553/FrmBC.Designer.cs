@@ -162,50 +162,55 @@
             this.toolStripSeparator2,
             this.itemTrasmit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 126);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 148);
             // 
             // itemAdd
             // 
+            this.itemAdd.Image = global::Demo1553.Properties.Resources.cog_add;
             this.itemAdd.Name = "itemAdd";
-            this.itemAdd.Size = new System.Drawing.Size(109, 22);
+            this.itemAdd.Size = new System.Drawing.Size(152, 22);
             this.itemAdd.Text = "新建...";
             this.itemAdd.Click += new System.EventHandler(this.itemAdd_Click);
             // 
             // itemEdit
             // 
+            this.itemEdit.Image = global::Demo1553.Properties.Resources.cog_edit;
             this.itemEdit.Name = "itemEdit";
-            this.itemEdit.Size = new System.Drawing.Size(109, 22);
+            this.itemEdit.Size = new System.Drawing.Size(152, 22);
             this.itemEdit.Text = "编辑";
             this.itemEdit.Click += new System.EventHandler(this.itemEdit_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(106, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // itemDelete
             // 
+            this.itemDelete.Image = global::Demo1553.Properties.Resources.cog_delete;
             this.itemDelete.Name = "itemDelete";
-            this.itemDelete.Size = new System.Drawing.Size(109, 22);
+            this.itemDelete.Size = new System.Drawing.Size(152, 22);
             this.itemDelete.Text = "删除";
             this.itemDelete.Click += new System.EventHandler(this.itemDelete_Click);
             // 
             // itemClear
             // 
+            this.itemClear.Image = global::Demo1553.Properties.Resources.cog;
             this.itemClear.Name = "itemClear";
-            this.itemClear.Size = new System.Drawing.Size(109, 22);
+            this.itemClear.Size = new System.Drawing.Size(152, 22);
             this.itemClear.Text = "清空";
             this.itemClear.Click += new System.EventHandler(this.itemClear_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(106, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // itemTrasmit
             // 
+            this.itemTrasmit.Image = global::Demo1553.Properties.Resources.cog_go;
             this.itemTrasmit.Name = "itemTrasmit";
-            this.itemTrasmit.Size = new System.Drawing.Size(109, 22);
+            this.itemTrasmit.Size = new System.Drawing.Size(152, 22);
             this.itemTrasmit.Text = "发送";
             this.itemTrasmit.Click += new System.EventHandler(this.itemTrasmit_Click);
             // 

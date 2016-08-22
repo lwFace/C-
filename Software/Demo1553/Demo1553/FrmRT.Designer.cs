@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnDisselectAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPageConfig = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlConfig = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.itemAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.itemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemClear = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.itemTrasmit = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridViewConfig = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBoxRTSetting1 = new System.Windows.Forms.GroupBox();
             this.checkButton25 = new DevExpress.XtraEditors.CheckButton();
             this.checkButton26 = new DevExpress.XtraEditors.CheckButton();
@@ -68,23 +77,24 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageMonitor = new DevExpress.XtraTab.XtraTabPage();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlMonitor = new DevExpress.XtraGrid.GridControl();
+            this.gridViewMonitor = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControlPayload = new DevExpress.XtraEditors.GroupControl();
             this.hexBoxBcPayload = new Be.Windows.Forms.HexBox();
             this.xtraTabPageConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             this.splitContainerControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlConfig)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewConfig)).BeginInit();
             this.groupBoxRTSetting1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPageMonitor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlMonitor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewMonitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).BeginInit();
             this.groupControlPayload.SuspendLayout();
             this.SuspendLayout();
@@ -112,14 +122,14 @@
             this.xtraTabPageConfig.Controls.Add(this.splitContainerControl2);
             this.xtraTabPageConfig.Name = "xtraTabPageConfig";
             this.xtraTabPageConfig.Size = new System.Drawing.Size(948, 231);
-            this.xtraTabPageConfig.Text = "Configurate";
+            this.xtraTabPageConfig.Text = "配置";
             // 
             // splitContainerControl2
             // 
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl2.Name = "splitContainerControl2";
-            this.splitContainerControl2.Panel1.Controls.Add(this.gridControl1);
+            this.splitContainerControl2.Panel1.Controls.Add(this.gridControlConfig);
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.groupBoxRTSetting1);
             this.splitContainerControl2.Panel2.Text = "Panel2";
@@ -128,24 +138,98 @@
             this.splitContainerControl2.TabIndex = 5;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
-            // gridControl1
+            // gridControlConfig
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(387, 231);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.UseEmbeddedNavigator = true;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridControlConfig.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControlConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlConfig.Location = new System.Drawing.Point(0, 0);
+            this.gridControlConfig.MainView = this.gridViewConfig;
+            this.gridControlConfig.Name = "gridControlConfig";
+            this.gridControlConfig.Size = new System.Drawing.Size(387, 231);
+            this.gridControlConfig.TabIndex = 0;
+            this.gridControlConfig.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewConfig});
             // 
-            // gridView1
+            // contextMenuStrip1
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemAdd,
+            this.itemEdit,
+            this.toolStripSeparator1,
+            this.itemDelete,
+            this.itemClear,
+            this.toolStripSeparator2,
+            this.itemTrasmit});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 126);
+            // 
+            // itemAdd
+            // 
+            this.itemAdd.Image = global::Demo1553.Properties.Resources.cog_add;
+            this.itemAdd.Name = "itemAdd";
+            this.itemAdd.Size = new System.Drawing.Size(109, 22);
+            this.itemAdd.Text = "新建...";
+            this.itemAdd.Click += new System.EventHandler(this.itemAdd_Click);
+            // 
+            // itemEdit
+            // 
+            this.itemEdit.Image = global::Demo1553.Properties.Resources.cog_edit;
+            this.itemEdit.Name = "itemEdit";
+            this.itemEdit.Size = new System.Drawing.Size(109, 22);
+            this.itemEdit.Text = "编辑";
+            this.itemEdit.Click += new System.EventHandler(this.itemEdit_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(106, 6);
+            // 
+            // itemDelete
+            // 
+            this.itemDelete.Image = global::Demo1553.Properties.Resources.cog_delete;
+            this.itemDelete.Name = "itemDelete";
+            this.itemDelete.Size = new System.Drawing.Size(109, 22);
+            this.itemDelete.Text = "删除";
+            this.itemDelete.Click += new System.EventHandler(this.itemDelete_Click);
+            // 
+            // itemClear
+            // 
+            this.itemClear.Image = global::Demo1553.Properties.Resources.cog;
+            this.itemClear.Name = "itemClear";
+            this.itemClear.Size = new System.Drawing.Size(109, 22);
+            this.itemClear.Text = "清空";
+            this.itemClear.Click += new System.EventHandler(this.itemClear_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(106, 6);
+            // 
+            // itemTrasmit
+            // 
+            this.itemTrasmit.Image = global::Demo1553.Properties.Resources.cog_go;
+            this.itemTrasmit.Name = "itemTrasmit";
+            this.itemTrasmit.Size = new System.Drawing.Size(109, 22);
+            this.itemTrasmit.Text = "发送";
+            this.itemTrasmit.Click += new System.EventHandler(this.itemTrasmit_Click);
+            // 
+            // gridViewConfig
+            // 
+            this.gridViewConfig.GridControl = this.gridControlConfig;
+            this.gridViewConfig.Name = "gridViewConfig";
+            this.gridViewConfig.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.gridViewConfig.OptionsBehavior.Editable = false;
+            this.gridViewConfig.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.gridViewConfig.OptionsBehavior.ReadOnly = true;
+            this.gridViewConfig.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewConfig.OptionsSelection.EnableAppearanceHideSelection = false;
+            this.gridViewConfig.OptionsSelection.MultiSelect = true;
+            this.gridViewConfig.OptionsSelection.UseIndicatorForSelection = false;
+            this.gridViewConfig.OptionsView.ShowGroupPanel = false;
+            this.gridViewConfig.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridViewConfig_RowCellClick);
+            this.gridViewConfig.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridViewConfig_PopupMenuShowing);
+            this.gridViewConfig.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridViewConfig_InitNewRow);
+            this.gridViewConfig.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridViewConfig_MouseDown);
             // 
             // groupBoxRTSetting1
             // 
@@ -588,7 +672,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControlPayload);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(954, 416);
+            this.splitContainerControl1.Size = new System.Drawing.Size(674, 397);
             this.splitContainerControl1.SplitterPosition = 260;
             this.splitContainerControl1.TabIndex = 6;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -596,10 +680,11 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPageConfig;
-            this.xtraTabControl1.Size = new System.Drawing.Size(954, 260);
+            this.xtraTabControl1.Size = new System.Drawing.Size(674, 260);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageConfig,
@@ -607,28 +692,28 @@
             // 
             // xtraTabPageMonitor
             // 
-            this.xtraTabPageMonitor.Controls.Add(this.gridControl2);
+            this.xtraTabPageMonitor.Controls.Add(this.gridControlMonitor);
             this.xtraTabPageMonitor.Name = "xtraTabPageMonitor";
-            this.xtraTabPageMonitor.Size = new System.Drawing.Size(948, 231);
-            this.xtraTabPageMonitor.Text = "Monitor";
+            this.xtraTabPageMonitor.Size = new System.Drawing.Size(668, 231);
+            this.xtraTabPageMonitor.Text = "监控";
             // 
-            // gridControl2
+            // gridControlMonitor
             // 
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(0, 0);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(948, 231);
-            this.gridControl2.TabIndex = 0;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gridControlMonitor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlMonitor.Location = new System.Drawing.Point(0, 0);
+            this.gridControlMonitor.MainView = this.gridViewMonitor;
+            this.gridControlMonitor.Name = "gridControlMonitor";
+            this.gridControlMonitor.Size = new System.Drawing.Size(668, 231);
+            this.gridControlMonitor.TabIndex = 0;
+            this.gridControlMonitor.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewMonitor});
             // 
-            // gridView2
+            // gridViewMonitor
             // 
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            this.gridView2.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView2_InitNewRow);
+            this.gridViewMonitor.GridControl = this.gridControlMonitor;
+            this.gridViewMonitor.Name = "gridViewMonitor";
+            this.gridViewMonitor.OptionsView.ShowGroupPanel = false;
+            this.gridViewMonitor.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridViewMonitor_RowCellClick);
             // 
             // groupControlPayload
             // 
@@ -636,7 +721,7 @@
             this.groupControlPayload.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlPayload.Location = new System.Drawing.Point(0, 0);
             this.groupControlPayload.Name = "groupControlPayload";
-            this.groupControlPayload.Size = new System.Drawing.Size(954, 151);
+            this.groupControlPayload.Size = new System.Drawing.Size(674, 132);
             this.groupControlPayload.TabIndex = 1;
             this.groupControlPayload.Text = "原始报文信息";
             // 
@@ -653,7 +738,7 @@
             this.hexBoxBcPayload.SelectionLength = ((long)(0));
             this.hexBoxBcPayload.SelectionStart = ((long)(-1));
             this.hexBoxBcPayload.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.hexBoxBcPayload.Size = new System.Drawing.Size(950, 128);
+            this.hexBoxBcPayload.Size = new System.Drawing.Size(670, 109);
             this.hexBoxBcPayload.StringViewVisible = true;
             this.hexBoxBcPayload.TabIndex = 0;
             this.hexBoxBcPayload.UseFixedBytesPerLine = true;
@@ -662,24 +747,26 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 416);
+            this.ClientSize = new System.Drawing.Size(674, 397);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "FrmRT";
             this.Text = "FrmRT";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRT_FormClosing);
             this.Load += new System.EventHandler(this.FrmRT_Load);
             this.xtraTabPageConfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
             this.splitContainerControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlConfig)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewConfig)).EndInit();
             this.groupBoxRTSetting1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPageMonitor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlMonitor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewMonitor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPayload)).EndInit();
             this.groupControlPayload.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -692,8 +779,8 @@
         private DevExpress.XtraEditors.SimpleButton btnSelectAll;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageConfig;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl gridControlConfig;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewConfig;
         private System.Windows.Forms.GroupBox groupBoxRTSetting1;
 
         private DevExpress.XtraEditors.CheckButton[] checkButtonRTr;
@@ -762,7 +849,15 @@
         private DevExpress.XtraEditors.CheckButton checkButton4;
         private DevExpress.XtraEditors.CheckButton checkButton3;
         private DevExpress.XtraEditors.CheckButton checkButton2;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.GridControl gridControlMonitor;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewMonitor;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem itemAdd;
+        private System.Windows.Forms.ToolStripMenuItem itemEdit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem itemDelete;
+        private System.Windows.Forms.ToolStripMenuItem itemClear;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem itemTrasmit;
     }
 }

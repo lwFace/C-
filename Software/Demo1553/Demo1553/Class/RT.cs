@@ -8,6 +8,26 @@ namespace Demo1553
 {
     public class RT:Node
     {
+        private bool _isRunning;
+        /// <summary>
+        /// RT是否在监控状态
+        /// </summary>
+        public bool IsRunning
+        {
+            get
+            {
+                return _isRunning;
+            }
+            set
+            {
+                _isRunning = value;
+                if (_isRunning == false)
+                {
+                    MonitorMsgList.Clear();
+                }
+            }
+        }
+
         public BindingList<BoundRTMessage> RTMsgList;
         private bool[] _rtStatus;
         /*RT配置信息*/
